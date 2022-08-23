@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest test",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "npx tsc",
-    "watch": "npx tsc --watch"
+    "build:watch": "npx tsc --watch"
   },
   "repository": {
     "type": "git",
