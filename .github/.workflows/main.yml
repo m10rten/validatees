@@ -1,0 +1,20 @@
+name: test & build suite
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+jobs:
+  validators:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install npm modules
+        run: |
+          npm ci
+      - name: build code base
+        run: |
+          npm run build
+      - name: run test suite
+        run: |
+          npm run test
