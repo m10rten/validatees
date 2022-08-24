@@ -6,4 +6,5 @@ const config: Config.InitialOptions = {
   testEnvironment: "node",
   preset: "ts-jest",
 };
+
 export default config;

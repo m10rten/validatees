@@ -1,2 +1,2 @@
-export { isFalsy } from "./isFalsy";
-export { isTruthy } from "./isTruthy";
+export { isFalsy } from "./types/isFalsy";
+export { isTruthy } from "./types/isTruthy";
