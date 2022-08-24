@@ -1,6 +1,7 @@
 .github
 tests
-dist
+src
 coverage
 jest.config.ts
 node_modules
+tsconfig.json
