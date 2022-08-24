@@ -1,9 +1,11 @@
 name: test & build suite
 on:
   pull_request:
-  push:
     branches:
       - dev
+      - main
+  push:
+    branches:
       - main
 jobs:
   validators:
