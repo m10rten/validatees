@@ -15,15 +15,6 @@ describe("isFalsy", () => {
   it("should return true for -0", () => {
     expect(isFalsy(-0)).toBe(true);
   });
-  it("should return true for 0n", () => {
-    expect(isFalsy(0n)).toBe(true);
-  });
-  it("should return true for 0n", () => {
-    expect(isFalsy(BigInt(0n))).toBe(true);
-  });
-  it("should return true for -0n", () => {
-    expect(isFalsy(BigInt(-0n))).toBe(true);
-  });
   it("should return true for ''", () => {
     expect(isFalsy("")).toBe(true);
   });
@@ -74,9 +65,6 @@ describe("isFalsy", () => {
   });
   it(`should return false for [" "]`, () => {
     expect(isFalsy([" "])).toBe(false);
-  });
-  it("should return false for [0n]", () => {
-    expect(isFalsy([0n])).toBe(false);
   });
   it("should return false for [null]", () => {
     expect(isFalsy([null])).toBe(false);

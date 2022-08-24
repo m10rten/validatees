@@ -26,13 +26,7 @@ export function isFalsy(
       (Number.isFinite(value) && value % 1 !== 0)
     );
   } else if ("bigint" === typeof value) {
-    return (
-      BigInt(-0n) === value ||
-      BigInt(0n) === value ||
-      BigInt(0x0n) === value ||
-      BigInt(Number.MAX_SAFE_INTEGER) < value ||
-      BigInt(Number.MIN_SAFE_INTEGER) > value
-    );
+    return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;
   } else if ("string" === typeof value) {
     return (
       "" === value ||

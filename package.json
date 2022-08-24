@@ -1,8 +1,7 @@
 {
   "name": "validatees",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "validate library for ES6+ modules",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -16,6 +15,10 @@
   },
   "keywords": [
     "validation",
+    "validate",
+    "validatees",
+    "javascript",
+    "ES",
     "typescript",
     "node"
   ],
