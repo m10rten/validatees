@@ -1,0 +1,6 @@
+.github
+tests
+dist
+coverage
+jest.config.ts
+node_modules

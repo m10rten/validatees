@@ -1,5 +1,5 @@
 /**
- * @param value {string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt | Promise<any>} any value
+ * @param value {string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt} any value
  * @functionality isFalsy returns true if value is falsy(see context)
  * @context `null`, `undefined`, `NaN`, `0`, `""`, `false`, `0n`(is `-0n`), `-0`,  `Symbol()`, `BigInt(0)` <<< 'falsy';
  * @example
@@ -12,7 +12,7 @@
  * @module isFalsy
  */
 export function isFalsy(
-  value: string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt | Promise<any>,
+  value: string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt,
 ): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
@@ -27,9 +27,9 @@ export function isFalsy(
     );
   } else if ("bigint" === typeof value) {
     return (
-      0n === value ||
-      -0n === value ||
-      0x0n === value ||
+      BigInt(-0n) === value ||
+      BigInt(0n) === value ||
+      BigInt(0x0n) === value ||
       BigInt(Number.MAX_SAFE_INTEGER) < value ||
       BigInt(Number.MIN_SAFE_INTEGER) > value
     );
@@ -46,8 +46,6 @@ export function isFalsy(
     );
   } else if ("boolean" === typeof value) {
     return false === value;
-  } else if (value instanceof Promise) {
-    return false; // Promise is never falsy
   } else if ("function" === typeof value) {
     return isFalsy(value());
   }

@@ -1,4 +1,4 @@
-import isFalsy from "../../lib/types/isFalsy";
+import isFalsy from "../../src/lib/types/isFalsy";
 describe("isFalsy", () => {
   it("should return true for undefined", () => {
     expect(isFalsy(undefined)).toBe(true);
@@ -18,8 +18,11 @@ describe("isFalsy", () => {
   it("should return true for 0n", () => {
     expect(isFalsy(0n)).toBe(true);
   });
+  it("should return true for 0n", () => {
+    expect(isFalsy(BigInt(0n))).toBe(true);
+  });
   it("should return true for -0n", () => {
-    expect(isFalsy(-0n)).toBe(true);
+    expect(isFalsy(BigInt(-0n))).toBe(true);
   });
   it("should return true for ''", () => {
     expect(isFalsy("")).toBe(true);

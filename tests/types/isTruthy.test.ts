@@ -1,4 +1,4 @@
-import isTruthy from "../../lib/types/isTruthy";
+import isTruthy from "../../src/lib/types/isTruthy";
 describe("isTruthy", () => {
   it("should return true for 1", () => {
     expect(isTruthy(1)).toBe(true);
