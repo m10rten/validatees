@@ -20,6 +20,6 @@ jobs:
       - run: |
           npm ci
           npm run build
-          npm publish
+          npm publish allow-same-version
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_CI_TOKEN}}
