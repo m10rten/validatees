@@ -22,8 +22,7 @@ export function isFalsy(
       -0 === value ||
       Number.isNaN(value) ||
       Number.MAX_SAFE_INTEGER < value ||
-      Number.MIN_SAFE_INTEGER > value ||
-      (Number.isFinite(value) && value % 1 !== 0)
+      Number.MIN_SAFE_INTEGER > value
     );
   } else if ("bigint" === typeof value) {
     return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;

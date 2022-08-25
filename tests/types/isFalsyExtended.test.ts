@@ -48,4 +48,7 @@ describe("isFalsyExtended", () => {
   it("should return true for [{a:1},{b:2},null]", () => {
     expect(isFalsyExtended([{ a: 1 }, { b: 2 }, null])).toBe(true);
   });
+  it("should return true for [{a:1},{b:2},undefined]", () => {
+    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, undefined])).toBe(true);
+  });
 });
