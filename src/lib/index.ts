@@ -7,6 +7,7 @@ export { isTruthy } from "./types/isTruthy";
 export { isTruthyExtended } from "./types/isTruthyExtended";
 export { isNullish } from "./types/isNullish";
 export { isString } from "./types/isString";
+export { isNumber } from "./types/isNumber";
 
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";

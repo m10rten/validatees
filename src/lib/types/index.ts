@@ -6,3 +6,4 @@ export { isTruthy } from "./isTruthy";
 export { isTruthyExtended } from "./isTruthyExtended";
 export { isNullish } from "./isNullish";
 export { isString } from "./isString";
+export { isNumber } from "./isNumber";
