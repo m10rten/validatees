@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.1.0",
+  "version": "0.1.01",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -21,7 +21,12 @@
     "javascript",
     "ES",
     "typescript",
-    "node"
+    "node",
+    "falsy",
+    "truthy",
+    "nullish",
+    "matchers",
+    "types"
   ],
   "author": "",
   "license": "MIT",

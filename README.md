@@ -43,6 +43,7 @@ import validatees from "validatees";
 Type checking can be difficult, but with `validatees` types, it's easy.
 
 **isFalsy**:</br>
+
 Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
 ```js
@@ -52,6 +53,7 @@ isFalsy(1); // false
 ```
 
 **isFalsyExtended**:</br>
+
 Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).</br>
 Also includes Array and object checking.
 
@@ -64,6 +66,7 @@ isFalsyExtended({}); // true
 ```
 
 **isTruthy**:</br>
+
 Everything not falsy is truthy. </br>
 Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
 
@@ -74,6 +77,7 @@ isTruthy(0); // false
 ```
 
 **isTruthyExtended**:</br>
+
 Everything not falsy is truthy. </br>
 Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
 Also includes Array and object checking.
@@ -86,16 +90,8 @@ isTruthyExtended([]); // false
 isTruthyExtended({}); // false
 ```
 
-**isString**:</br>
-Check if value is string.
-
-```js
-const { isString } = require("validatees");
-isString("string"); // true
-isString(1); // false
-```
-
 **isNullish**:</br>
+
 Check if value is null or undefined.
 
 ```js
@@ -103,6 +99,27 @@ const { isNullish } = require("validatees");
 isNullish(null); // true
 isNullish(undefined); // true
 isNullish(0); // false
+```
+
+**isString**:</br>
+
+Check if value is a string.
+
+```js
+const { isString } = require("validatees");
+isString("string"); // true
+isString(1); // false
+```
+
+**isNumber**:</br>
+
+Check if value is a number.
+
+```js
+const { isNumber } = require("validatees");
+isNumber(1); // true
+isNumber(Infinity); // true
+isNumber("string"); // false
 ```
 
 ### Matchers
