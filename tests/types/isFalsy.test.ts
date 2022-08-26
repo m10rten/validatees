@@ -81,4 +81,13 @@ describe("isFalsy", () => {
   it("should return false for [[]]", () => {
     expect(isFalsy([[]])).toBe(false);
   });
+  it("should return false for BigInt(1)", () => {
+    expect(isFalsy(BigInt(1))).toBe(false);
+  });
+  it("should return true for Number.MAX_SAFE_INTEGER + 1", () => {
+    expect(isFalsy(Number.MAX_SAFE_INTEGER + 1)).toBe(true);
+  });
+  it("should return true for Number.MIN_SAFE_INTEGER - 1", () => {
+    expect(isFalsy(Number.MIN_SAFE_INTEGER - 1)).toBe(true);
+  });
 });

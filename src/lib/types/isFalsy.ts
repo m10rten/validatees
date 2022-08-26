@@ -16,6 +16,8 @@ export function isFalsy(
 ): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
+  } else if ("bigint" === typeof value) {
+    return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;
   } else if ("number" === typeof value) {
     return (
       0 === value ||
@@ -24,8 +26,6 @@ export function isFalsy(
       Number.MAX_SAFE_INTEGER < value ||
       Number.MIN_SAFE_INTEGER > value
     );
-  } else if ("bigint" === typeof value) {
-    return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;
   } else if ("string" === typeof value) {
     return (
       "" === value ||

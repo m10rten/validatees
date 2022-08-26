@@ -36,6 +36,9 @@ describe("isSoftMatch", () => {
   it("should return false for [] and {}", () => {
     expect(isSoftMatch([], {})).toBe(false);
   });
+  it("should return true for [] and []", () => {
+    expect(isSoftMatch([], [])).toBe(true);
+  });
   it("should return true for {} and {}", () => {
     expect(isSoftMatch({}, {})).toBe(true);
   });
