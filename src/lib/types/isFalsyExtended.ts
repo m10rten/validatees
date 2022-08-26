@@ -10,8 +10,8 @@ export function isFalsyExtended(value: any): boolean {
     return (
       0 === Object.keys(value).length ||
       0 === Object.values(value).length ||
-      true === Object.keys(value).some((key) => true === isFalsyExtended(value[key])) ||
-      true === Object.values(value).some((val) => true === isFalsyExtended(val))
+      true === Object.keys(value).some((key) => true === isFalsy(value[key])) ||
+      true === Object.values(value).some((val: any) => true === isFalsy(val)) // check only ifFalsy, else you will iterate over every entry.
     );
   } else if ("number" === typeof value) {
     return Number.isNaN(value) || false === Number.isFinite(value) || Infinity === value || -Infinity === value;
