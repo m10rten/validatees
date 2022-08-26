@@ -136,3 +136,16 @@ isSoftMatch("string", "STRING"); // true
 isSoftMatch("string", "abc"); // false
 isSoftMatch(1, 1.0); // true
 ```
+
+**isDeepMatch**:</br>
+Check if two values deep match with each other.
+
+```js
+const { isDeepMatch } = require("validatees");
+isDeepMatch({ a: 1 }, { a: 1 }); // true
+isDeepMatch({ a: 1 }, { a: 2 }); // false
+isDeepMatch([1, 2, { a: 3 }], [1, 2, { a: 3 }]); // true
+
+// without the await it will return a promise holding the boolean.
+await isDeepMatch(Promise.resolve(1), Promise.resolve(1)); // true
+```

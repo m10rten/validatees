@@ -18,12 +18,8 @@ export function isSoftMatch(val1: any, val2: any): boolean {
     (Array.isArray(val1) && "object" === typeof val2 && false === Array.isArray(val2)) ||
     ("object" === typeof val1 && false === Array.isArray(val1) && Array.isArray(val2))
   ) {
-    console.log("isSoftMatch:", val1, val2);
-
     return false;
   } else if ("object" === typeof val1 && "object" === typeof val2) {
-    console.log(val1, val2);
-
     return (
       Object.keys(val1).length === Object.keys(val2).length &&
       Object.keys(val1).every((key) => isSoftMatch(val1[key], val2[key]))

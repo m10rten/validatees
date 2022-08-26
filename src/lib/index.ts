@@ -11,3 +11,4 @@ export { isNumber } from "./types/isNumber";
 
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";
+export { isDeepMatch } from "./matchers/isDeepMatch";

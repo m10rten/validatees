@@ -9,3 +9,4 @@ export { isNumber } from "./lib/types/isNumber";
 
 // matchers
 export { isSoftMatch } from "./lib/matchers/isSoftMatch";
+export { isDeepMatch } from "./lib/matchers/isDeepMatch";
