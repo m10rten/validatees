@@ -27,7 +27,7 @@ npm install validatees
 # yarn
 yarn add validatees
 # pnpm
-pnpm add validatees
+pnpm install validatees
 ```
 
 ## Usage
