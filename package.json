@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "validate library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -9,6 +9,7 @@
     "build": "npx tsc",
     "build:watch": "npx tsc --watch"
   },
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/m10rten/validatees.git"
@@ -28,6 +29,7 @@
     "url": "https://github.com/m10rten/validatees/issues"
   },
   "homepage": "https://github.com/m10rten/validatees#readme",
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^28.1.7",
     "@types/node": "^18.7.11",
