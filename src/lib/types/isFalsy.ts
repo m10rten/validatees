@@ -16,17 +16,16 @@ export function isFalsy(
 ): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
+  } else if ("bigint" === typeof value) {
+    return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;
   } else if ("number" === typeof value) {
     return (
       0 === value ||
       -0 === value ||
       Number.isNaN(value) ||
       Number.MAX_SAFE_INTEGER < value ||
-      Number.MIN_SAFE_INTEGER > value ||
-      (Number.isFinite(value) && value % 1 !== 0)
+      Number.MIN_SAFE_INTEGER > value
     );
-  } else if ("bigint" === typeof value) {
-    return BigInt(Number.MAX_SAFE_INTEGER) < value || BigInt(Number.MIN_SAFE_INTEGER) > value;
   } else if ("string" === typeof value) {
     return (
       "" === value ||
