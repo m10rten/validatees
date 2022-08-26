@@ -1,7 +1,7 @@
 {
   "name": "validatees",
-  "version": "0.0.8",
-  "description": "validate library for ES6+ modules",
+  "version": "0.0.81",
+  "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",

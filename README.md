@@ -43,12 +43,24 @@ import validatees from "validatees";
 Type checking can be difficult, but with `validatees` types, it's easy.
 
 **isFalsy**:</br>
-Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
 ```js
 const { isFalsy } = require("validatees");
 isFalsy(0); // true
 isFalsy(1); // false
+```
+
+**isFalsyExtended**:</br>
+Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).</br>
+Also includes Array and object checking.
+
+```js
+const { isFalsyExtended } = require("validatees");
+isFalsyExtended(1); // false
+isFalsyExtended(0); // true
+isFalsyExtended([]); // true
+isFalsyExtended({}); // true
 ```
 
 **isTruthy**:</br>
@@ -59,6 +71,19 @@ Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glo
 const { isTruthy } = require("validatees");
 isTruthy(1); // true
 isTruthy(0); // false
+```
+
+**isTruthyExtended**:</br>
+Everything not falsy is truthy. </br>
+Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
+Also includes Array and object checking.
+
+```js
+const { isTruthyExtended } = require("validatees");
+isTruthyExtended(1); // true
+isTruthyExtended(0); // false
+isTruthyExtended([]); // false
+isTruthyExtended({}); // false
 ```
 
 **isString**:</br>
