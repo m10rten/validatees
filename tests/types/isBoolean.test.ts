@@ -43,4 +43,10 @@ describe("isBoolean", () => {
     it("should return false for ''", () => {
         expect(isBoolean("")).toBe(false);
     });
+    it("should return false for number", () => {
+        expect(isBoolean(1)).toBe(false);
+    });
+    it("should return false for new Error()", () => {
+        expect(isBoolean(new Error())).toBe(false);
+    });
 });
