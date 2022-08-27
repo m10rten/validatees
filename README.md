@@ -13,7 +13,7 @@ Validation package for ES6+, TypeScript and JavaScript(CommonJS and Module) read
 
 - 🚀**Easy to use**: Easy to install in your project.
 - ✅**ES6+ && TS**: TypeScript and ES6+ support(JS).
-- 🐭**Small footprint**: Less then 3kb package size.
+- 🐭**Small footprint**: Less then 5kb package size.
 - 📦**No dependencies**: You don't depend on anything else.
 
 # Getting Started
