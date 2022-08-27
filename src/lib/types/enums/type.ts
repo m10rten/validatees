@@ -29,4 +29,6 @@ export type types<T = any> =
   | undefined
   | boolean
   | (() => T)
-  | bigint;
+  | bigint
+  | Date
+  | RegExp;
