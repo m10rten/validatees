@@ -124,6 +124,17 @@ isNumber(Infinity); // true
 isNumber("string"); // false
 ```
 
+**isBoolean**: </br>
+
+Check if value is a boolean.
+
+```js
+const { isBoolean } = require("validatees");
+isBoolean(true); // true
+isBoolean(false); // true
+isBoolean("1"); // false
+```
+
 ### Matchers
 
 Matchers are functions that check if a value matches a certain pattern or value.
