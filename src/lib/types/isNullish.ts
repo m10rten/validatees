@@ -1,4 +1,6 @@
-export function isNullish(value: any): boolean {
+import { types } from "./enums/type";
+
+export function isNullish(value: types): boolean {
   return null === value || undefined === value;
 }
 

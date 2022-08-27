@@ -1,13 +1,14 @@
 {
   "name": "validatees",
-  "version": "0.1.121",
+  "version": "0.1.122",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "build": "npx tsc",
-    "build:watch": "npx tsc --watch"
+    "build:watch": "npx tsc --watch",
+    "lint": "npx eslint src --ext .ts"
   },
   "main": "./dist/index.js",
   "repository": {
@@ -34,10 +35,12 @@
     "url": "https://github.com/m10rten/validatees/issues"
   },
   "homepage": "https://github.com/m10rten/validatees#readme",
-  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^28.1.7",
     "@types/node": "^18.7.11",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.23.0",
     "jest": "^28.1.3",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",

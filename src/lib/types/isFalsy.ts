@@ -1,3 +1,5 @@
+import { types } from "./enums/type";
+
 /**
  * @param value {string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt} any value
  * @functionality isFalsy returns true if value is falsy(see context)
@@ -11,9 +13,7 @@
  * @returns {boolean} boolean
  * @module isFalsy
  */
-export function isFalsy(
-  value: string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt,
-): boolean {
+export function isFalsy<T>(value: types<T>): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {
@@ -21,7 +21,7 @@ export function isFalsy(
   } else if ("number" === typeof value) {
     return (
       0 === value ||
-      -0 === value ||
+      Object.is(value, -0) ||
       Number.isNaN(value) ||
       Number.MAX_SAFE_INTEGER < value ||
       Number.MIN_SAFE_INTEGER > value
