@@ -1,4 +1,6 @@
-export function isSoftMatch(val1: any, val2: any): boolean {
+import { allTypes } from "../types/enums/type";
+
+export function isSoftMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean {
   if (val1 === val2) {
     return true;
   } else if ((null === val1 && undefined === val2) || (undefined === val1 && null === val2)) {

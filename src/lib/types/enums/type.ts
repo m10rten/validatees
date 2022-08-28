@@ -19,16 +19,26 @@ export enum TYPE {
   NEVER = "never",
   VOID = "void",
 }
-export type types<T = any> =
+export type allTypes<T> =
   | string
   | number
-  | symbol
-  | Array<T>
-  | object
-  | null
-  | undefined
   | boolean
+  | object
+  | Array<T>
+  | undefined
+  | null
   | (() => T)
-  | bigint
+  | symbol
   | Date
-  | RegExp;
+  | RegExp
+  | Record<string, T>
+  | Error
+  | Promise<T>
+  | Buffer
+  | bigint
+  | any
+  | unknown
+  | never
+  | void
+  | T
+  | Map<string, T>;

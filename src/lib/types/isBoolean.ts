@@ -1,10 +1,10 @@
-import { TYPE, types } from "./enums/type";
+import { allTypes } from "./enums/type";
 
-export function isBoolean<T>(value: types<T>): boolean {
+export function isBoolean<T>(value: allTypes<T>): boolean {
   return (
-    TYPE.BOOLEAN === typeof value ||
+    "boolean" === typeof value ||
     value instanceof Boolean ||
-    Boolean === value?.constructor ||
+    Boolean === value.constructor ||
     "[object Boolean]" === Object.prototype.toString.call(value)
   );
 }

@@ -1,10 +1,24 @@
-import { TYPE, types } from "./enums/type";
+import { TYPE } from "./enums/type";
 /**
  * If you want to do your own type checking, you can use this function to get the type of a value.
  * @param value {any} any value
  * @returns {TYPE} type of value
  */
-export function getType<T>(value: types<T>): TYPE {
+export function getType(
+  value:
+    | string
+    | number
+    | symbol
+    | Array<any>
+    | object
+    | null
+    | undefined
+    | boolean
+    | (() => any)
+    | bigint
+    | Date
+    | RegExp,
+): TYPE {
   const type: typeof value = typeof value;
   if (TYPE.UNDEFINED === type) {
     return TYPE.UNDEFINED;
