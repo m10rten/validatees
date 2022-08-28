@@ -2,11 +2,12 @@ import { allTypes } from "./enums/type";
 import isFalsy from "./isFalsy";
 
 export function isFalsyExtended<T>(value: allTypes<T>): boolean {
-  const check = isFalsy(value);
-  if (true === check) {
+  if (isFalsy(value)) {
     return true;
   } else if (Array.isArray(value)) {
     return 0 === value.length || value.some(isFalsyExtended);
+  } else if ("function" === typeof value) {
+    return isFalsy(value());
   } else if ("object" === typeof value) {
     return (
       0 === Object.keys(value).length ||
