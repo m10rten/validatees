@@ -1,3 +1,4 @@
+import { allTypes } from "./enums/type";
 import isFalsyExtended from "./isFalsyExtended";
 
 /**
@@ -7,7 +8,7 @@ import isFalsyExtended from "./isFalsyExtended";
  * @returns {boolean} boolean
  * @module isTruthyExtended
  */
-export function isTruthyExtended(value: any): boolean {
+export function isTruthyExtended<T>(value: allTypes<T>): boolean {
   return false === isFalsyExtended(value);
 }
 

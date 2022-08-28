@@ -1,6 +1,7 @@
+import { allTypes } from "./enums/type";
 import isFalsy from "./isFalsy";
 
-export function isFalsyExtended(value: any): boolean {
+export function isFalsyExtended<T>(value: allTypes<T>): boolean {
   const check = isFalsy(value);
   if (true === check) {
     return true;

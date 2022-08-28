@@ -1,4 +1,6 @@
-export function isString(value: any): boolean {
+import { allTypes } from "./enums/type";
+
+export function isString<T>(value: allTypes<T>): boolean {
   return (
     "string" === typeof value ||
     value instanceof String ||

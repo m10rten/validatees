@@ -1,3 +1,5 @@
+import { allTypes } from "./enums/type";
+
 /**
  * @param value {string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt} any value
  * @functionality isFalsy returns true if value is falsy(see context)
@@ -11,7 +13,7 @@
  * @returns {boolean} boolean
  * @module isFalsy
  */
-export function isFalsy(value: any): boolean {
+export function isFalsy<T>(value: allTypes<T>): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {

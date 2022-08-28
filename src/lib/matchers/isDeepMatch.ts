@@ -1,4 +1,4 @@
-import { TYPE } from "../types/enums/type";
+import { allTypes, TYPE } from "../types/enums/type";
 
 /**
  * Intensive task to compare two values with deep search.
@@ -7,7 +7,7 @@ import { TYPE } from "../types/enums/type";
  * @param val2 {any} any value
  * @returns {boolean} true if val1 is a deep match with val2
  */
-export function isDeepMatch(val1: any, val2: any): boolean | Promise<boolean> {
+export function isDeepMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean | Promise<boolean> {
   if (val1 === val2) {
     return true;
   } else if (TYPE.FUNCTION === typeof val1 && TYPE.FUNCTION === typeof val2) {

@@ -1,13 +1,14 @@
 {
   "name": "validatees",
-  "version": "0.1.121",
+  "version": "0.1.122",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "build": "npx tsc",
-    "build:watch": "npx tsc --watch"
+    "build:watch": "npx tsc --watch",
+    "lint": "npx npx eslint src --ext .ts"
   },
   "main": "./dist/index.js",
   "repository": {
