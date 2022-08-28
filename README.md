@@ -140,6 +140,7 @@ isBoolean("1"); // false
 Matchers are functions that check if a value matches a certain pattern or value.
 
 **isSoftMatch**:</br>
+
 Check if two values soft match with each other.
 
 ```js
@@ -150,6 +151,7 @@ isSoftMatch(1, 1.0); // true
 ```
 
 **isDeepMatch**:</br>
+
 Check if two values deep match with each other.
 
 ```js
@@ -162,9 +164,22 @@ isDeepMatch([1, 2, { a: 3 }], [1, 2, { a: 3 }]); // true
 await isDeepMatch(Promise.resolve(1), Promise.resolve(1)); // true
 ```
 
+**isValidDate**:</br>
+
+Check if value is a valid date.
+This function takes any input and will parse it to a Date, `-1` and `1` will work because they are valid dates.
+
+```js
+const { isValidDate } = require("validatees");
+isValidDate(new Date()); // true
+isValidDate("1"); //true: because it will be parsed to a date starting from 1970.
+isValidDate(-1); //true : because it will be parsed to a date starting from 1970, moving backwards.
+isValidDate("string"); // false
+```
+
 # Contributing
 
-Found a bug🦟? or want to suggest a new feature🆕? or just want to help🆘? </br>  
+Found a bug🦟? or want to suggest a new feature🆕? or just want to help🆘? </br>
 Feel free to open an issue or a pull request.
 
 Contributions are always welcome!🎉
