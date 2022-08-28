@@ -1,6 +1,6 @@
-import { types } from "./enums/type";
+import { allTypes } from "./enums/type";
 
-export function isNullish(value: types): boolean {
+export function isNullish<T>(value: allTypes<T>): boolean {
   return null === value || undefined === value;
 }
 

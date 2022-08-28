@@ -1,4 +1,4 @@
-import { types } from "./enums/type";
+import { allTypes } from "./enums/type";
 
 /**
  * @param value {string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt} any value
@@ -13,7 +13,7 @@ import { types } from "./enums/type";
  * @returns {boolean} boolean
  * @module isFalsy
  */
-export function isFalsy<T>(value: types<T>): boolean {
+export function isFalsy<T>(value: allTypes<T>): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {

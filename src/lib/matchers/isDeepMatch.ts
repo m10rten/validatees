@@ -1,4 +1,4 @@
-import { TYPE } from "../types/enums/type";
+import { allTypes } from "../types/enums/type";
 
 /**
  * Intensive task to compare two values with deep search.
@@ -7,19 +7,17 @@ import { TYPE } from "../types/enums/type";
  * @param val2 {any} any value
  * @returns {boolean} true if val1 is a deep match with val2
  */
-export function isDeepMatch(val1: any, val2: any): boolean | Promise<boolean> {
+export function isDeepMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean | Promise<boolean> {
   if (val1 === val2) {
     return true;
-  } else if (TYPE.FUNCTION === typeof val1 && TYPE.FUNCTION === typeof val2) {
-    return val1() === val2();
+  } else if ("function" === typeof val1 && "function" === typeof val2) {
+    return isDeepMatch(val1(), val2());
   } else if (val1 instanceof Promise && val2 instanceof Promise) {
-    const func = (async () => {
+    return (async () => {
       const result1 = await val1;
       const result2 = await val2;
       return isDeepMatch(result1, result2);
     })();
-
-    return func;
   } else if (val1 && val2 && typeof val1 === "object" && typeof val2 === "object") {
     if (Array.isArray(val1) && Array.isArray(val2)) {
       if (val1.length !== val2.length) {
