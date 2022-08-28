@@ -1,6 +1,6 @@
-import { TYPE, types } from "./enums/type";
+import { TYPE, allTypes } from "./enums/type";
 
-export function isBoolean<T>(value: types<T>): boolean {
+export function isBoolean<T>(value: allTypes<T>): boolean {
   return (
     TYPE.BOOLEAN === typeof value ||
     value instanceof Boolean ||
