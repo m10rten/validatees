@@ -1,10 +1,8 @@
-import { types } from "./enums/type";
-
-export function isNumber(value: types): boolean {
+export function isNumber(value: any): boolean {
   return (
     (typeof value === "number" ||
       value instanceof Number ||
-      Number === value?.constructor ||
+      Number === value.constructor ||
       "[object Number]" === Object.prototype.toString.call(value)) &&
     false === Number.isNaN(value)
   );

@@ -1,10 +1,8 @@
-import { types } from "./enums/type";
-
-export function isString<T>(value: types<T>): boolean {
+export function isString(value: any): boolean {
   return (
     "string" === typeof value ||
     value instanceof String ||
-    String === value?.constructor ||
+    String === value.constructor ||
     "[object String]" === Object.prototype.toString.call(value)
   );
 }

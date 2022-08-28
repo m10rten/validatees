@@ -20,7 +20,7 @@
     "checkJs": true /* Enable error reporting in type-checked JavaScript files. */,
     /* Emit */
     "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
-    "declarationMap": true /* Create sourcemaps for d.ts files. */,
+    "declarationMap": false /* Create sourcemaps for d.ts files. */,
     "sourceMap": false /* Create source map files for emitted JavaScript files. */,
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
     "removeComments": false /* Disable emitting comments. */,

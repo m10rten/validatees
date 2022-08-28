@@ -31,4 +31,9 @@ export type types<T = any> =
   | (() => T)
   | bigint
   | Date
-  | RegExp;
+  | RegExp
+  | Record<string, any>
+  | Error
+  | Promise<T>
+  | Buffer
+  | { [key: string]: any };

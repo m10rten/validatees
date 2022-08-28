@@ -127,4 +127,7 @@ describe("isDeepMatch", () => {
   it("should return false for a Buffer and a Buffer with a different value", () => {
     expect(isDeepMatch(Buffer.from("foo"), Buffer.from("bar"))).toBe(false);
   });
+  it("should return true for a Set and a Set with the same values", () => {
+    expect(isDeepMatch(new Set([1, 2, 3]), new Set([1, 2, 3]))).toBe(true);
+  });
 });
