@@ -11,9 +11,7 @@
  * @returns {boolean} boolean
  * @module isFalsy
  */
-export function isFalsy(
-  value: string | number | symbol | Array<any> | object | null | undefined | boolean | Function | BigInt,
-): boolean {
+export function isFalsy(value: any): boolean {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {
