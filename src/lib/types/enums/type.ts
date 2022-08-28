@@ -28,7 +28,7 @@ export declare type allTypes<T> =
   | Array<T>
   | undefined
   | null
-  | Function
+  | (() => T)
   | symbol
   | Date
   | RegExp
