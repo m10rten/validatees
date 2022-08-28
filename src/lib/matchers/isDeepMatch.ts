@@ -18,8 +18,6 @@ export function isDeepMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean | 
       const result2 = await val2;
       return isDeepMatch(result1, result2);
     })();
-  } else if (val1 instanceof Promise || val2 instanceof Promise) {
-    return false;
   } else if (val1 && val2 && typeof val1 === "object" && typeof val2 === "object") {
     if (Array.isArray(val1) && Array.isArray(val2)) {
       if (val1.length !== val2.length) {
@@ -41,10 +39,7 @@ export function isDeepMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean | 
       return val1.message === val2.message;
     } else if (val1 instanceof Buffer && val2 instanceof Buffer) {
       return val1.equals(val2);
-    } else if (
-      (val1 instanceof Object && val2 instanceof Object) ||
-      (typeof val1 === "object" && typeof val2 === "object")
-    ) {
+    } else if (val1 instanceof Object && val2 instanceof Object) {
       const keys1 = Object.keys(val1);
       const keys2 = Object.keys(val2);
       if (keys1.length !== keys2.length) {

@@ -105,6 +105,9 @@ describe("isDeepMatch", () => {
   it("should return false for Promises that resolve to different values", async () => {
     expect(await isDeepMatch(Promise.resolve(1), Promise.resolve(2))).toBe(false); // notice the await
   });
+  it("should return false when comparing a Promise to a non-Promise", async () => {
+    expect(await isDeepMatch(Promise.resolve(1), 2)).toBe(false); // notice the await
+  });
   it("should return true for functions that return the same value", async () => {
     expect(
       isDeepMatch(

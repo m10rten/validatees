@@ -1,4 +1,7 @@
-export function isValidDate(date: any): boolean {
+import isFalsy from "../types/isFalsy";
+import { allTypes } from "../types/enums/type";
+
+export function isValidDate<T>(date: allTypes<T>): boolean {
   if (date instanceof Date) {
     const dateString = new Date(date).toDateString();
     return dateString !== "Invalid Date" && false === isNaN(Date.parse(dateString));
@@ -8,18 +11,13 @@ export function isValidDate(date: any): boolean {
     if (0 > numDate) {
       return false;
     }
-    return (
-      false === isNaN(parsedDate) &&
-      (parsedDate !== null || parsedDate !== undefined || parsedDate !== "" || parsedDate !== 0)
-    );
+    return !isFalsy(parsedDate);
   } else if (typeof date === "number") {
     if (0 > date) {
       return false;
     }
     date = new Date(date);
-    if (isNaN(date.getTime())) {
-      return false;
-    }
+    return !isFalsy(date.getTime()) && !isFalsy(date);
   }
   return false;
 }

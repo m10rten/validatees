@@ -19,7 +19,7 @@ export enum TYPE {
   NEVER = "never",
   VOID = "void",
 }
-export type types<T = any> =
+export type allTypes<T> =
   | string
   | number
   | boolean
