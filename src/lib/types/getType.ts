@@ -1,4 +1,5 @@
 import { allTypes, TYPE } from "./enums/type";
+
 /**
  * If you want to do your own type checking, you can use this function to get the type of a value.
  * @param value {any} any value

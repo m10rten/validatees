@@ -14,6 +14,7 @@ import { allTypes } from "./enums/type";
  * @module isFalsy
  */
 export function isFalsy<T>(value: allTypes<T>): boolean {
+
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {
@@ -21,7 +22,7 @@ export function isFalsy<T>(value: allTypes<T>): boolean {
   } else if ("number" === typeof value) {
     return (
       0 === value ||
-      -0 === value ||
+      Object.is(value, -0) ||
       Number.isNaN(value) ||
       Number.MAX_SAFE_INTEGER < value ||
       Number.MIN_SAFE_INTEGER > value

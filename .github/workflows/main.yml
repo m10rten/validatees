@@ -15,6 +15,9 @@ jobs:
       - name: install npm modules
         run: |
           npm ci
+      - name: lint code base
+        run: |
+          npm run lint
       - name: build code base
         run: |
           npm run build
