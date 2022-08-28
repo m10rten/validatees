@@ -22,18 +22,23 @@ export enum TYPE {
 export type types<T = any> =
   | string
   | number
-  | symbol
-  | Array<T>
-  | object
-  | null
-  | undefined
   | boolean
+  | object
+  | Array<T>
+  | undefined
+  | null
   | (() => T)
-  | bigint
+  | symbol
   | Date
   | RegExp
-  | Record<string, any>
+  | Record<string, T>
   | Error
   | Promise<T>
   | Buffer
-  | { [key: string]: any };
+  | bigint
+  | any
+  | unknown
+  | never
+  | void
+  | T
+  | Map<string, T>;

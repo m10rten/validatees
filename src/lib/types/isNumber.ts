@@ -1,4 +1,6 @@
-export function isNumber(value: any): boolean {
+import { allTypes } from "./enums/type";
+
+export function isNumber<T>(value: allTypes<T>): boolean {
   return (
     (typeof value === "number" ||
       value instanceof Number ||

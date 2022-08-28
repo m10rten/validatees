@@ -1,4 +1,13 @@
-export function isDeepMatch(val1: any, val2: any): boolean | Promise<boolean> {
+import { allTypes } from "../types/enums/type";
+
+/**
+ * Intensive task to compare two values with deep search.
+ * {await} is needed to compare Promises.
+ * @param val1 {any} any value
+ * @param val2 {any} any value
+ * @returns {boolean} true if val1 is a deep match with val2
+ */
+export function isDeepMatch<T>(val1: allTypes<T>, val2: allTypes<T>): boolean | Promise<boolean> {
   if (val1 === val2) {
     return true;
   } else if ("function" === typeof val1 && "function" === typeof val2) {
@@ -58,11 +67,3 @@ export function isDeepMatch(val1: any, val2: any): boolean | Promise<boolean> {
 }
 
 export default isDeepMatch;
-
-/**
- * Intensive task to compare two values with deep search.
- * {await} is needed to compare Promises.
- * @param val1 {any} any value
- * @param val2 {any} any value
- * @returns {boolean} true if val1 is a deep match with val2
- */
