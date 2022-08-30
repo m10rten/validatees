@@ -13,7 +13,7 @@ Validation package for ES6+, TypeScript and JavaScript(CommonJS and Module) read
 
 - 🚀**Easy to use**: Easy to install in your project.
 - ✅**ES6+ && TS**: TypeScript and ES6+ support(JS).
-- 🐭**Small footprint**: Less then 5kb package size.
+- 🐭**Small footprint**: With less then 10kb, you won't even notice.
 - 📦**No dependencies**: You don't depend on anything else.
 
 # Getting Started
@@ -38,6 +38,56 @@ pnpm install validatees
 const validatees = require("validatees");
 // TypeScript || ES6+ JavaScript module
 import validatees from "validatees";
+```
+
+### VListener
+
+Adding validation over your array before your program starts.
+
+**parameters**:
+
+- `array`: array to validate.
+- `callback`: function to validate each item in the array, must return boolean, can only take 1 parameter(for now!).  
+ Use validatees `isTruthy` or `isFalsy` for example.
+<!-- To Be Extended with callback array to validate even more! -->
+
+**options**:
+
+- `strict`: `boolean`, default: `false`, strict mode; skip push if validation fails in 1 or more items.
+- `condition`: `boolean`, default: `true`, condition to validate; check if callback is `condition` is met.
+
+**functions**:
+
+- `registerArrayListeners`: register listeners for given arrays.
+- `unregisterArrayListeners`: unregister listeners for given arrays.
+
+```js
+const { VListener } = require("validatees");
+
+const vListener = new VListener();
+const arr1 = [];
+const arr2 = [{ a: 1 }, { b: 2 }]; // items already added will not be validated.
+
+vListener.registerArrayListeners([
+  { array: arr1, callback: isTruthy, options: { condition: true, strict: false } },
+  { array: arr2, callback: isFalsyExtended, options: { condition: false } },
+]);
+
+arr1.push(1); // should be pushed
+arr2.push({ c: 3 }, { d: 4 }, null); // null should not be pushed
+arr1.push(0); // should not be pushed
+arr2.push({}); // should not be pushed
+
+console.log(arr1); // [1]
+console.log(arr2); // [{ a: 1 }, { b: 2 }, { c: 3 }]
+
+vListener.unregisterArrayListeners([{ array: arr1 }]);
+arr1.push(0); // can now be pushed again.
+console.log(arr1); // [1, 0]
+
+vListener.unregisterArrayListeners([{ array: arr2 }]);
+arr2.push({}); // can now be pushed again.
+console.log(arr2); // [{ a: 1 }, { b: 2 }, { c: 3 }, { d: 4 }, {}]
 ```
 
 ### Types
