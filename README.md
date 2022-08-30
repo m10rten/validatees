@@ -66,7 +66,7 @@ const { VListener } = require("validatees");
 
 const vListener = new VListener();
 const arr1 = [];
-const arr2 = [{ a: 1 }, { b: 2 }];
+const arr2 = [{ a: 1 }, { b: 2 }]; // items already added will not be validated.
 
 vListener.registerArrayListeners([
   { array: arr1, callback: isTruthy, options: { condition: true, strict: false } },
