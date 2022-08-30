@@ -43,18 +43,20 @@ import validatees from "validatees";
 ### VListener
 
 Adding validation over your array before your program starts.
-parameters:
+
+**parameters**:
 
 - `array`: array to validate.
-- `callback`: function to validate each item in the array, must return boolean, can only take 1 parameter(for now!).
+- `callback`: function to validate each item in the array, must return boolean, can only take 1 parameter(for now!).  
+ Use validatees `isTruthy` or `isFalsy` for example.
 <!-- To Be Extended with callback array to validate even more! -->
 
-options:
+**options**:
 
 - `strict`: `boolean`, default: `false`, strict mode; skip push if validation fails in 1 or more items.
 - `condition`: `boolean`, default: `true`, condition to validate; check if callback is `condition` is met.
 
-functions:
+**functions**:
 
 - `registerArrayListeners`: register listeners for given arrays.
 - `unregisterArrayListeners`: unregister listeners for given arrays.
