@@ -12,3 +12,5 @@ export { isBoolean } from "./types/isBoolean";
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";
 export { isDeepMatch } from "./matchers/isDeepMatch";
+// v-listener
+export { VListener } from "./v-listener/";
