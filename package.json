@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.1.2",
+  "version": "0.1.21",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
