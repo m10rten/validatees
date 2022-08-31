@@ -189,6 +189,18 @@ isBoolean("1"); // false
 
 Matchers are functions that check if a value matches a certain pattern or value.
 
+**isUnique**:</br>
+
+Check if value is unique in array or object(key mostly).
+
+```js
+const { isUnique } = require("validatees");
+isUnique([1, 2, 3, 4], 1); // false
+isUnique([1, 2, 3, 4], { a: 1 }); // throws error
+isUnique({ a: 1, b: 2 }, { a: 1 }); // false
+isUnique({ a: 1, b: 2 }, { c: 1 }); // true
+```
+
 **isSoftMatch**:</br>
 
 Check if two values soft match with each other.
