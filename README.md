@@ -54,7 +54,7 @@ Adding validation over your array before your program starts.
 **options**:
 
 - `strict`: `boolean`, default: `false`, strict mode; skip push if validation fails in 1 or more items.
-- `condition`: `boolean`, default: `true`, condition to validate; check if callback is `condition` is met.
+- `condition`: `boolean`, default: `true`, condition to validate; check if callback with `condition` is met.
 
 **functions**:
 
@@ -79,7 +79,7 @@ arr1.push(0); // should not be pushed
 arr2.push({}); // should not be pushed
 
 console.log(arr1); // [1]
-console.log(arr2); // [{ a: 1 }, { b: 2 }, { c: 3 }]
+console.log(arr2); // [{ a: 1 }, { b: 2 }, { c: 3 }, { d: 4 }]
 
 vListener.unregisterArrayListeners([{ array: arr1 }]);
 arr1.push(0); // can now be pushed again.
