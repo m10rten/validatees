@@ -7,6 +7,7 @@ export { isNullish } from "./lib/types/isNullish";
 export { isString } from "./lib/types/isString";
 export { isNumber } from "./lib/types/isNumber";
 export { isBoolean } from "./lib/types/isBoolean";
+export { isExtendable } from "./lib/types/isExtendable";
 
 // matchers
 export { isSoftMatch } from "./lib/matchers/isSoftMatch";

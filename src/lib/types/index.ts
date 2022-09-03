@@ -7,3 +7,5 @@ export { isTruthyExtended } from "./isTruthyExtended";
 export { isNullish } from "./isNullish";
 export { isString } from "./isString";
 export { isNumber } from "./isNumber";
+export { isBoolean } from "./isBoolean";
+export { isExtendable } from "./isExtendable";

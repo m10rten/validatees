@@ -9,6 +9,7 @@ export { isNullish } from "./types/isNullish";
 export { isString } from "./types/isString";
 export { isNumber } from "./types/isNumber";
 export { isBoolean } from "./types/isBoolean";
+export { isExtendable } from "./types/isExtendable";
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";
 export { isDeepMatch } from "./matchers/isDeepMatch";
