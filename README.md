@@ -185,6 +185,34 @@ isBoolean(false); // true
 isBoolean("1"); // false
 ```
 
+**isExtendable**: </br>
+
+Check if value is extendable for modification.
+
+```js
+const { isExtendable } = require("validatees");
+isExtendable({}); // true
+isExtendable([]); // true
+
+const prevent = {};
+Object.preventExtensions(prevent);
+isExtendable(obj); // false
+
+const sealed = {};
+Object.seal(sealed);
+isExtendable(sealed); // false
+
+const frozen = {};
+Object.freeze(frozen);
+isExtendable(frozen); // false
+
+const frozenArray = [];
+Object.freeze(frozenArray);
+isExtendable(frozenArray); // false
+
+isExtendable(1 /**anything else then object or array */); // throws error
+```
+
 ### Matchers
 
 Matchers are functions that check if a value matches a certain pattern or value.
