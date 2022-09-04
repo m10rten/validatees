@@ -60,6 +60,8 @@ import validatees from "validatees";
   - [isValidPassword](#isvalidpasswordbr)
     - [options](#options2br)
   - [isUnique](#isuniquebr)
+  - [isSoftMatch](#issoftmatchbr)
+  - [isDeepMatch](#isdeepmatchbr)
 
 ### VListener
 
