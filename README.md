@@ -42,8 +42,6 @@ import validatees from "validatees";
 
 ### Documentation
 
-[Documentation](https://m10rten.github.io/validatees/)
-
 - [VListener](#vlistener)
   - [parameters](#parameters)
   - [options](#options1)
