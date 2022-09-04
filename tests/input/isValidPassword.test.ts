@@ -42,4 +42,10 @@ describe("isValidPassword", () => {
   it("should return true for 'test!test' with custom options", () => {
     expect(isValidPassword("test!test", { numbers: 0 })).toBe(true);
   });
+  it("should limit the maximum length of the password", () => {
+    expect(isValidPassword("test1test!", { maxLength: 4 })).toBe(false);
+  });
+  it("should take in account the min and max length of the password", () => {
+    expect(isValidPassword("test1t!d", { minLength: 4, maxLength: 8 })).toBe(true);
+  });
 });

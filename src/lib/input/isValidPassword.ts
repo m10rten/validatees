@@ -3,10 +3,11 @@ import { allTypes } from "../types/enums/type";
 
 export function isValidPassword<T>(
   value: allTypes<T>,
-  options?: { minLength?: number; numbers?: number; specialChars?: number },
+  options?: { minLength?: number; numbers?: number; specialChars?: number; maxLength?: number },
 ): boolean {
-  const { minLength, numbers, specialChars } = {
+  const { minLength, numbers, specialChars, maxLength } = {
     minLength: options?.minLength ?? 8,
+    maxLength: options?.maxLength ?? 32,
     numbers: options?.numbers ?? 1,
     specialChars: options?.specialChars ?? 1,
   };
@@ -14,7 +15,7 @@ export function isValidPassword<T>(
     return false;
   } else if (false === isString(value)) {
     throw new Error("Invalid argument");
-  } else if (value.length < minLength) {
+  } else if (value.length < minLength || value.length > maxLength) {
     return false;
   }
   const regex = new RegExp(
