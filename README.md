@@ -254,6 +254,19 @@ isDeepMatch([1, 2, { a: 3 }], [1, 2, { a: 3 }]); // true
 await isDeepMatch(Promise.resolve(1), Promise.resolve(1)); // true
 ```
 
+**isValidEmail**:</br>
+
+Check if value is a valid email.
+
+```js
+const { isValidEmail } = require("validatees");
+isValidEmail("test@test.test"); // true
+isValidEmail(""); // false
+isValidEmail("test@test"); // false
+isValidEmail("test@test.t"); // false
+isValidEmail(123); // throws error
+```
+
 **isValidDate**:</br>
 
 Check if value is a valid date.
