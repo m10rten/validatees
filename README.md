@@ -46,20 +46,21 @@ import validatees from "validatees";
   - [parameters](#parameters)
   - [options](#options1)
 - [types](#types)
-  - [isFalsy](#isfalsybr)
-  - [isFalsyExtended](#isfalsyextendedbr)
-  - [isTruthy](#istruthybr)
-  - [isTruthyExtended](#istruthyextendedbr)
-  - [isString](#isstringbr)
-  - [isNumber](#isnumberbr)
-  - [isBoolean](#isboolean-br)
+  - [isFalsy](#isfalsy)
+  - [isFalsyExtended](#isfalsyextended)
+  - [isTruthy](#istruthy)
+  - [isTruthyExtended](#istruthyextended)
+  - [isString](#isstring)
+  - [isNumber](#isnumber)
+  - [isBoolean](#isboolean-)
 - [matchers](#matchers)
-  - [isValidEmail](#isvalidemailbr)
-  - [isValidPassword](#isvalidpasswordbr)
-    - [options](#options2br)
-  - [isUnique](#isuniquebr)
-  - [isSoftMatch](#issoftmatchbr)
-  - [isDeepMatch](#isdeepmatchbr)
+  - [isValidEmail](#isvalidemail)
+  - [isValidPassword](#isvalidpassword)
+    - [options](#options2)
+  - [isValidUrl](#isvalidurl)
+  - [isUnique](#isunique)
+  - [isSoftMatch](#issoftmatch)
+  - [isDeepMatch](#isdeepmatch)
 
 ### VListener
 
@@ -79,8 +80,8 @@ Adding validation over your array before your program starts.
 
 #### **functions**:
 
-- `registerArrayListeners`: register listeners for given arrays.
-- `unregisterArrayListeners`: unregister listeners for given arrays.
+- `register`: register listeners for given arrays.
+- `remove`: remove listeners for given arrays.
 
 ```js
 const { VListener } = require("validatees");
@@ -89,7 +90,7 @@ const vListener = new VListener();
 const arr1 = [];
 const arr2 = [{ a: 1 }, { b: 2 }]; // items already added will not be validated.
 
-vListener.registerArrayListeners([
+vListener.register([
   { array: arr1, callback: isTruthy, { strict: true } },
   { array: arr2, callback: isFalsyExtended, { condition: false } },
 ]);
@@ -102,11 +103,11 @@ arr2.push({}); // should not be pushed
 console.log(arr1); // [1]
 console.log(arr2); // [{ a: 1 }, { b: 2 }]
 
-vListener.unregisterArrayListeners([{ array: arr1 }]);
+vListener.remove([{ array: arr1 }]);
 arr1.push(0); // can now be pushed again.
 console.log(arr1); // [1, 0]
 
-vListener.unregisterArrayListeners([{ array: arr2 }]);
+vListener.remove([{ array: arr2 }]);
 arr2.push({}); // can now be pushed again.
 console.log(arr2); // [{ a: 1 }, { b: 2 }, {}]
 ```
@@ -115,7 +116,7 @@ console.log(arr2); // [{ a: 1 }, { b: 2 }, {}]
 
 Type checking can be difficult, but with `validatees` types, it's easy.
 
-#### **isFalsy**:</br>
+#### **isFalsy**:
 
 Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
 
@@ -125,7 +126,7 @@ isFalsy(0); // true
 isFalsy(1); // false
 ```
 
-#### **isFalsyExtended**:</br>
+#### **isFalsyExtended**:
 
 Made from ['Falsy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).</br>
 Also includes Array and object checking.
@@ -138,7 +139,7 @@ isFalsyExtended([]); // true
 isFalsyExtended({}); // true
 ```
 
-#### **isTruthy**:</br>
+#### **isTruthy**:
 
 Everything not falsy is truthy. </br>
 Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
@@ -149,7 +150,7 @@ isTruthy(1); // true
 isTruthy(0); // false
 ```
 
-#### **isTruthyExtended**:</br>
+#### **isTruthyExtended**:
 
 Everything not falsy is truthy. </br>
 Made from ['Truthy MDN defenition'](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
@@ -163,7 +164,7 @@ isTruthyExtended([]); // false
 isTruthyExtended({}); // false
 ```
 
-#### **isNullish**:</br>
+#### **isNullish**:
 
 Check if value is null or undefined.
 
@@ -174,7 +175,7 @@ isNullish(undefined); // true
 isNullish(0); // false
 ```
 
-#### **isString**:</br>
+#### **isString**:
 
 Check if value is a string.
 
@@ -184,7 +185,7 @@ isString("string"); // true
 isString(1); // false
 ```
 
-#### **isNumber**:</br>
+#### **isNumber**:
 
 Check if value is a number.
 
@@ -238,7 +239,7 @@ isExtendable(1 /**anything else then object or array */); // throws error
 
 Matchers are functions that check if a value matches a certain pattern or value.
 
-#### **isUnique**:</br>
+#### **isUnique**:
 
 Check if value is unique in array or object(key mostly).
 
@@ -250,7 +251,7 @@ isUnique({ a: 1, b: 2 }, { a: 1 }); // false
 isUnique({ a: 1, b: 2 }, { c: 1 }); // true
 ```
 
-#### **isSoftMatch**:</br>
+#### **isSoftMatch**:
 
 Check if two values soft match with each other.
 
@@ -261,7 +262,7 @@ isSoftMatch("string", "abc"); // false
 isSoftMatch(1, 1.0); // true
 ```
 
-#### **isDeepMatch**:</br>
+#### **isDeepMatch**:
 
 Check if two values deep match with each other.
 
@@ -275,7 +276,7 @@ isDeepMatch([1, 2, { a: 3 }], [1, 2, { a: 3 }]); // true
 await isDeepMatch(Promise.resolve(1), Promise.resolve(1)); // true
 ```
 
-#### **isValidEmail**:</br>
+#### **isValidEmail**:
 
 Check if value is a valid email.
 
@@ -288,11 +289,11 @@ isValidEmail("test@test.t"); // false
 isValidEmail(123); // throws error
 ```
 
-#### **isValidPassword**:</br>
+#### **isValidPassword**:
 
 Check if value is a valid password.
 
-##### **options2**:</br>
+##### **options2**:
 
 - `minLength`: number, default `8`
 - `maxLength`: number, default `32`
@@ -307,7 +308,21 @@ isValidPassword(123); // throws error
 isValidPassword("t", { minLength: 1, numbers: 0, specialChars: 0 }); // true
 ```
 
-#### **isValidDate**:</br>
+#### **isValidUrl**:
+
+Check if value is a valid url.
+
+> IPV4 and IPV6 are not supported.
+
+```js
+const { isValidUrl } = require("validatees");
+isValidUrl("https://google.com"); // true
+isValidUrl("google.com"); // true
+isValidUrl("google"); // false
+isValidUrl(123); // throws error
+```
+
+#### **isValidDate**:
 
 Check if value is a valid date.
 This function takes any input and will parse it to a Date, `-1` and `1` will work because they are valid dates.

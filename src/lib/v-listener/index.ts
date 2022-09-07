@@ -1,6 +1,6 @@
 export class VListener {
   private arraySet: Set<{ id: number; array: Array<any> }> = new Set();
-  public registerArrayListeners(
+  public register(
     args: Array<{
       array: Array<any>;
       callback: <T = any>(value: T) => boolean;
@@ -20,7 +20,7 @@ export class VListener {
       }
     });
   }
-  public unregisterArrayListeners(args: Array<{ array: Array<any> }>): void {
+  public remove(args: Array<{ array: Array<any> }>): void {
     args.forEach((arg) => {
       if (!arg.array || false === Array.isArray(arg.array)) {
         throw new Error("Invalid arguments");
