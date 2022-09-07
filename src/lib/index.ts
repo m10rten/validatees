@@ -13,5 +13,7 @@ export { isExtendable } from "./types/isExtendable";
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";
 export { isDeepMatch } from "./matchers/isDeepMatch";
+export { isValidPassword } from "./input/isValidPassword";
+export { isValidUrl } from "./input/isValidUrl";
 // v-listener
 export { VListener } from "./v-listener/";
