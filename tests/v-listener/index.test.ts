@@ -4,9 +4,9 @@ describe("VListener", () => {
     const vListener = new VListener();
     expect(vListener).toBeInstanceOf(VListener);
   });
-  it("should add new arrays with the registerArrayListeners", () => {
+  it("should add new arrays with the register", () => {
     const vListener = new VListener();
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array: ["array"],
         callback: () => {
@@ -20,7 +20,7 @@ describe("VListener", () => {
     const vListener = new VListener();
     const callback = jest.fn();
     const array = ["array"];
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array,
         callback: callback,
@@ -33,7 +33,7 @@ describe("VListener", () => {
     const vListener = new VListener();
     const callback = jest.fn().mockReturnValue(false);
     const array = ["array"];
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array,
         callback,
@@ -44,10 +44,10 @@ describe("VListener", () => {
     expect(callback).toHaveBeenCalled();
     expect(vListener.getNrOfListeners()).toBe(prevSize);
   });
-  it("should check if the registerArrayListeners throws an error when passed an fake array", () => {
+  it("should check if the register throws an error when passed an fake array", () => {
     const vListener = new VListener();
     expect(() => {
-      vListener.registerArrayListeners([
+      vListener.register([
         {
           array: "array" as unknown as Array<any>,
           callback: () => {
@@ -57,10 +57,10 @@ describe("VListener", () => {
       ]);
     }).toThrowError("Invalid arguments");
   });
-  it("should check if the unregisterArrayListeners removes the array from the arraySet", () => {
+  it("should check if the remove removes the array from the arraySet", () => {
     const vListener = new VListener();
     const array = ["array"];
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array,
         callback: () => {
@@ -68,19 +68,19 @@ describe("VListener", () => {
         },
       },
     ]);
-    vListener.unregisterArrayListeners([{ array }]);
+    vListener.remove([{ array }]);
     expect(vListener.getNrOfListeners()).toBe(0);
   });
-  it("should check if the unregisterArrayListeners throws an error when passed an fake array", () => {
+  it("should check if the remove throws an error when passed an fake array", () => {
     const vListener = new VListener();
     expect(() => {
-      vListener.unregisterArrayListeners([{ array: "array" as unknown as Array<any> }]);
+      vListener.remove([{ array: "array" as unknown as Array<any> }]);
     }).toThrowError("Invalid arguments");
   });
-  it("should check if values are added to the array after the unregisterArrayListeners", () => {
+  it("should check if values are added to the array after the remove", () => {
     const vListener = new VListener();
     const array = ["array"];
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array,
         callback: () => {
@@ -92,7 +92,7 @@ describe("VListener", () => {
     array.push("");
     expect(array.length).toBe(prevLength);
     expect(vListener.getNrOfListeners()).toBe(1);
-    vListener.unregisterArrayListeners([{ array }]);
+    vListener.remove([{ array }]);
     expect(vListener.getNrOfListeners()).toBe(0);
     array.push("array2");
     expect(array.length).toBe(prevLength + 1);
@@ -100,7 +100,7 @@ describe("VListener", () => {
   it("should test if values are only added if strict is true and the callback returns true", () => {
     const vListener = new VListener();
     const array = ["array"];
-    vListener.registerArrayListeners([
+    vListener.register([
       {
         array: array,
         callback: jest
