@@ -28,8 +28,20 @@ jobs:
       - name: run test suite
         run: |
           npm test
-  publish-npm:
+  check-version:
+    runs-on: ubuntu-latest
     needs: validatees-suite
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: run version check
+        run: |
+          node version-check
+        # if this step fails, the workflow will stop
+  publish-npm:
+    needs: [validatees-suite, check-version]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

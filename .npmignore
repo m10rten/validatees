@@ -11,3 +11,4 @@ tsconfig.json
 .npmignore
 CHANGELOG.md
 .nvmrc
+check-version.js
