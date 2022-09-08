@@ -9,6 +9,25 @@ on:
       - main
 
 jobs:
+  validatees-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: install npm modules
+        run: |
+          npm ci
+      - name: lint code base
+        run: |
+          npm run lint
+      - name: build code base
+        run: |
+          npm run build --if-present
+      - name: run test suite
+        run: |
+          npm test
   publish-npm:
     needs: validatees-suite
     runs-on: ubuntu-latest

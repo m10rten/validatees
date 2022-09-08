@@ -4,9 +4,7 @@ on:
     branches:
       - dev
       - main
-  push:
-    branches:
-      - main
+
 jobs:
   validatees-suite:
     runs-on: ubuntu-latest
