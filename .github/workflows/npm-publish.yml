@@ -38,7 +38,7 @@ jobs:
           node-version: 16.x
       - name: run version check
         run: |
-          node version-check
+          node check-version
         # if this step fails, the workflow will stop
   publish-npm:
     needs: [validatees-suite, check-version]
