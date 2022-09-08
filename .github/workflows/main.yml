@@ -10,13 +10,12 @@ on:
 jobs:
   validatees-suite:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
     steps:
       - uses: actions/checkout@v3
       - name: install npm modules
         run: |
+          echo "::node-version::"
+          node -v
           npm ci
       - name: lint code base
         run: |
