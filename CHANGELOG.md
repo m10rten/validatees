@@ -1,12 +1,16 @@
-# 0.6.3
+## 0.6.4
+
+- Updated the CI files to make use of the correct order, no publish when the tests, lint or build fail.
+
+## 0.6.3
 
 - Updated the readme to display seperately for npm and github.
 
-# 0.6.2
+## 0.6.2
 
 - Patched index file to include `isValidDate` function.
 
-# 0.6.1
+## 0.6.1
 
 - Patched index files to export all functions.
 
@@ -34,13 +38,13 @@ Due to many updates in previous versions, we skipped 0.4.0 and went straight to 
 
 Due to many updates in previes minor version, we skipped 0.2.0 and went straight to 0.3.0.
 
-# 0.1.2
+## 0.1.2
 
 - Added `isBoolean` function.
 - Added `isDate` function.
 - Added VListener class validator.
 
-# 0.1.12
+## 0.1.12
 
 - Added `isDeepMatch` function.
 - Updated documentation.
