@@ -10,16 +10,17 @@ on:
 
 jobs:
   publish-npm:
+    needs: validatees-suite
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: "16.x"
           registry-url: https://registry.npmjs.org/
       - run: |
           npm ci
           npm run build
-          npm publish --allow-same-version
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_CI_TOKEN}}
