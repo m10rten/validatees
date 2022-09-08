@@ -42,4 +42,4 @@ import validatees from "validatees";
 
 ### Documentation
 
-For more information, please visit the [documentation](https://github.com/m10rten/validatees/.github#readme).
+For more information, please visit the [documentation](https://github.com/m10rten/validatees#readme).
