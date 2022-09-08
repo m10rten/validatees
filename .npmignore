@@ -9,3 +9,5 @@ tsconfig.json
 .eslintrc.json
 .gitignore
 .npmignore
+CHANGELOG.md
+readme
