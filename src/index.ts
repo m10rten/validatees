@@ -15,6 +15,7 @@ export { isDeepMatch } from "./lib/matchers/isDeepMatch";
 export { isValidPassword } from "./lib/input/isValidPassword";
 export { isValidUrl } from "./lib/input/isValidUrl";
 export { isValidDate } from "./lib/input/isValidDate";
+export { isValidEmail } from "./lib/input/isValidEmail";
 
 // v-listener
 export { VListener } from "./lib/v-listener/";
