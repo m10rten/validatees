@@ -1,3 +1,7 @@
+## 0.6.6
+
+- Patched the missing export of isValidEmail function.
+
 ## 0.6.5
 
 - Made check-version file for checking the version of the package within the CI.

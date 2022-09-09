@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -28,7 +28,10 @@
     "truthy",
     "nullish",
     "matchers",
-    "types"
+    "types",
+    "email",
+    "password",
+    "url"
   ],
   "bin": {
     "validatees/check": "./check-version.js"
