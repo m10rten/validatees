@@ -12,3 +12,4 @@ tsconfig.json
 CHANGELOG.md
 .nvmrc
 check-version.js
+uglify-files.js

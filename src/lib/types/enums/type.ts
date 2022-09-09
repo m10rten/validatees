@@ -1,25 +1,4 @@
-export enum TYPE {
-  STRING = "string",
-  NUMBER = "number",
-  BOOLEAN = "boolean",
-  OBJECT = "object",
-  ARRAY = "array",
-  UNDEFINED = "undefined",
-  NULL = "null",
-  FUNCTION = "function",
-  SYMBOL = "symbol",
-  DATE = "date",
-  REGEXP = "regexp",
-  ERROR = "error",
-  PROMISE = "promise",
-  BUFFER = "buffer",
-  BIGINT = "bigint",
-  ANY = "any",
-  UNKNOWN = "unknown",
-  NEVER = "never",
-  VOID = "void",
-}
-export type allTypes<T> =
+export type allTypes<T = unknown> =
   | string
   | number
   | boolean

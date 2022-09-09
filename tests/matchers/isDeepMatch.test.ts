@@ -63,7 +63,7 @@ describe("isDeepMatch", () => {
   it("should return false for [1, 2, 3] and {0: 1, 1: 2, 2: 3}", () => {
     expect(isDeepMatch([1, 2, 3], { 0: 1, 1: 2, 2: 3 })).toBe(false);
   });
-  it("should return false for new Error('foo') and new Error('foo')", () => {
+  it("should return false for new Error('foo') and new Error('bar')", () => {
     expect(isDeepMatch(new Error("foo"), new Error("bar"))).toBe(false);
   });
   it("should return true for new Error('foo') and new Error('foo')", () => {

@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { execSync } = require("child_process");
 const { readFileSync } = require("fs");

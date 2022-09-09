@@ -13,7 +13,8 @@ import { allTypes } from "./enums/type";
  * @returns {boolean} boolean
  * @module isFalsy
  */
-export function isFalsy<T>(value: allTypes<T>): boolean {
+
+export function isFalsy<T>(value: allTypes<T>): value is Falsy {
   if ("undefined" === typeof value || undefined === typeof value || value === null || null === typeof value) {
     return true;
   } else if ("bigint" === typeof value) {
@@ -44,5 +45,7 @@ export function isFalsy<T>(value: allTypes<T>): boolean {
   }
   return false;
 }
+
+export type Falsy = null | undefined | 0 | "" | false | -0;
 
 export default isFalsy;
