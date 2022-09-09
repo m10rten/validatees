@@ -1,3 +1,10 @@
+## 0.6.5
+
+- Made check-version file for checking the version of the package within the CI.
+- Uglify function to reduce package size.
+- Made some functions easier to use with typescript.
+  - TS compiler will not complain when checking isNullish or isFalsy anymore.
+
 ## 0.6.4
 
 - Updated the CI files to make use of the correct order, no publish when the tests, lint or build fail.
