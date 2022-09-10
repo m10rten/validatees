@@ -3,6 +3,11 @@
 - You are now able to run CLI commands using npx.
 - Learned a bit about how to use `npx` and how it relates to the package itself.
 - Updated the docs accordingly.
+- Updated the devDependencies to the latest versions.
+- CLI: Added a `--version` flag to the CLI.
+- CLI: Added a `--help` flag to the CLI.
+- CLI: Added a `--exit` flag to the CLI.
+- CLI: Added a `--check` flag to the CLI.
 
 ## 0.6.7
 

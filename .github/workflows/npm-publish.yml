@@ -18,7 +18,7 @@ jobs:
           node-version: 16.x
       - name: run version check
         run: |
-          node check-version
+          npm run cli:check:ci
         # if this step fails, the workflow will stop
   validatees-suite:
     runs-on: ubuntu-latest
