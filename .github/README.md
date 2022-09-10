@@ -127,7 +127,7 @@ console.log(arr2); // [{ a: 1 }, { b: 2 }, {}]
 
 #### **installation-cli**:
 
-To use the CLI, you can use `npx` or install it globally using `npm` or `yarn`:
+To use the CLI, you can install it globally using `npm` or `yarn`:
 
 ```bash
 # npm
@@ -139,7 +139,6 @@ yarn global add validatees
 #### **usage-cli**:
 
 To use the CLI, run `validatees-cli` in your terminal:
-You do not need to install the package when using `npx`.
 
 ```bash
 # npx

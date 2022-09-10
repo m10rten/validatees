@@ -2,6 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
+import { default as isFalsy } from "../lib/types/isFalsy";
 import { default as checkVersion } from "./check-version";
 import { default as help } from "./help";
 // import { default as version } from "./version"; //TODO
@@ -30,13 +31,13 @@ switch (
   case "--c":
   case "-check": {
     let processExit: boolean = false;
-    if (true === includesExit) {
+    if (true === includesHelp) {
+      console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCheckVersion());
+      process.exit(0);
+    } else if (true === includesExit) {
       processExit = false;
     } else if (true === includesCI) {
       processExit = true;
-    } else if (true === includesHelp) {
-      console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCheckVersion());
-      process.exit(0);
     }
 
     checkVersion(processExit);
@@ -85,6 +86,10 @@ switch (
     break;
   }
   default:
+    if (isFalsy(args[0])) {
+      console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getGlobalHelpText());
+      process.exit(0);
+    }
     console.error("\x1b[1m\x1b[31m%s\x1b[0m", "Error:", `Unknown argument: ${args[0]}`);
     process.exit(1); // stops the process, no return needed.
 }

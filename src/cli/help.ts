@@ -21,7 +21,7 @@ const getHelpTextVersion = (): string => {
 const getGlobalHelpText = (): string => {
   return `
       Available main commands:
-        --help: Show this help text.
+        --help: Show this help message.
         --check: Check the version of validatees to the locale version.
         --version: Show the installed version of validatees.
 
