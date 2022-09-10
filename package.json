@@ -9,7 +9,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "lint": "eslint src --ext .ts",
-    "cli:check:ci": "node ./dist/cli/index.js --check --ci"
+    "cli:check:ci": "npx ts-node ./src/cli/index.ts --check --ci"
   },
   "main": "./dist/index.js",
   "repository": {
