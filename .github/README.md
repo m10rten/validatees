@@ -31,6 +31,13 @@ yarn add validatees
 pnpm install validatees
 ```
 
+To check if you have the **latest version**, run using `npx✅:
+
+```bash
+# npx
+npx validatees
+```
+
 ## Usage
 
 ```js

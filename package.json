@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -33,7 +33,7 @@
     "url"
   ],
   "bin": {
-    "validatees-check-version": "./check-version.js"
+    "validatees": "./dist/cli/index.js"
   },
   "author": "",
   "license": "MIT",

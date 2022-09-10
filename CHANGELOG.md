@@ -1,3 +1,9 @@
+## 0.7.0
+
+- You are now able to run CLI commands using npx.
+- Learned a bit about how to use `npx` and how it relates to the package itself.
+- Updated the docs accordingly.
+
 ## 0.6.7
 
 - Commit to try to fix `npx validatees-version-check`.
