@@ -1,3 +1,8 @@
+## 0.6.7
+
+- Commit to try to fix `npx validatees-version-check`.
+- Remove the uglify since it's not very effective.
+
 ## 0.6.6
 
 - Patched the missing export of isValidEmail function.

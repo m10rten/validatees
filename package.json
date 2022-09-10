@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -8,8 +8,7 @@
     "test:coverage": "jest --coverage",
     "build": "npx tsc",
     "build:watch": "npx tsc --watch",
-    "lint": "npx eslint src --ext .ts",
-    "uglify": "node uglify-files.js"
+    "lint": "npx eslint src --ext .ts"
   },
   "main": "./dist/index.js",
   "repository": {
@@ -34,7 +33,7 @@
     "url"
   ],
   "bin": {
-    "validatees/check": "./check-version.js"
+    "validatees-check-version": "./check-version.js"
   },
   "author": "",
   "license": "MIT",
