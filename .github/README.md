@@ -31,6 +31,13 @@ yarn add validatees
 pnpm install validatees
 ```
 
+To check if you have the **latest version**, run using `npx`✅:
+
+```bash
+# npx
+npx validatees-cli --check
+```
+
 ## Usage
 
 ```js
@@ -44,7 +51,11 @@ import validatees from "validatees";
 
 - [VListener](#vlistener)
   - [parameters](#parameters)
-  - [options](#options1)
+  - [options](#options-vlistener)
+- [CLI](#cli)
+  - [installation](#installation-cli)
+  - [usage](#usage-cli)
+  - [options](#options-cli)
 - [types](#types)
   - [isFalsy](#isfalsy)
   - [isFalsyExtended](#isfalsyextended)
@@ -56,7 +67,7 @@ import validatees from "validatees";
 - [matchers](#matchers)
   - [isValidEmail](#isvalidemail)
   - [isValidPassword](#isvalidpassword)
-    - [options](#options2)
+    - [options](#options-isvalidpassword)
   - [isValidUrl](#isvalidurl)
   - [isUnique](#isunique)
   - [isSoftMatch](#issoftmatch)
@@ -73,7 +84,7 @@ Adding validation over your array before your program starts.
  Use validatees `isTruthy` or `isFalsy` for example.
 <!-- To Be Extended with callback array to validate even more! -->
 
-#### **options1**:
+#### **options-vlistener**:
 
 - `strict`: `boolean`, default: `false`, strict mode; skip push if validation fails in 1 or more items.
 - `condition`: `boolean`, default: `true`, condition to validate; check if callback with `condition` is met.
@@ -111,6 +122,42 @@ vListener.remove([{ array: arr2 }]);
 arr2.push({}); // can now be pushed again.
 console.log(arr2); // [{ a: 1 }, { b: 2 }, {}]
 ```
+
+### CLI
+
+#### **installation-cli**:
+
+To use the CLI, you can use `npx` or install it globally using `npm` or `yarn`:
+
+```bash
+# npm
+npm install -g validatees
+# yarn
+yarn global add validatees
+```
+
+#### **usage-cli**:
+
+To use the CLI, run `validatees-cli` in your terminal:
+You do not need to install the package when using `npx`.
+
+```bash
+# npx
+npx validatees-cli <args>
+# npm & yarn
+validatees-cli <args>
+```
+
+#### **options-cli**:
+
+- `--help, -help, --h, -h`: show help. </br>
+  `validatees-cli --help` or `validatees-cli -h` or `validatees-cli --h`
+  - Can be used after each of the following flags to show help for that flag.
+  - Or can be used to display all the flags and their description.
+- `--version, -version, --v, -v`: show the current installed version.
+- `--check, -check, --c, -c`: check if the installed version is up to date with the latest version.
+- `--exit, -exit, --e, -e`: exit the process after the command execution, default: `false`.
+<!-- - `--update, -update, --u, -u`: update to the latest version. -->
 
 ### Types
 
@@ -293,7 +340,7 @@ isValidEmail(123); // throws error
 
 Check if value is a valid password.
 
-##### **options2**:
+##### **options-isvalidpassword**:
 
 - `minLength`: number, default `8`
 - `maxLength`: number, default `32`
