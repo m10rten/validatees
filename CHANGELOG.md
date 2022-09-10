@@ -1,4 +1,8 @@
-## 0.7.0
+## 0.7.1
+
+- Fix where version-check is not pushed to NPM due to being in `.npmignore`.
+
+# 0.7.0
 
 - You are now able to run CLI commands using npx.
 - Learned a bit about how to use `npx` and how it relates to the package itself.
