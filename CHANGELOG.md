@@ -1,3 +1,9 @@
+## 0.7.2
+
+- Fix where `-c -h` would run `--check` instead of `help` for the check command.
+- Updated documentation regarding the CLI.
+- Now displays the help message when no command is provided instaed of throwing an error.
+
 ## 0.7.1
 
 - Fix where version-check is not pushed to NPM due to being in `.npmignore`.
