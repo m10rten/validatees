@@ -1,3 +1,10 @@
+## 0.7.3
+
+- Fix where version check was not working correctly.
+- Removed uglify-files.js as it was not being used.
+- A shell environment is now available to try out the built in functions.
+- Updated the check-version to check on the dependencies only.
+
 ## 0.7.2
 
 - Fix where `-c -h` would run `--check` instead of `help` for the check command.
