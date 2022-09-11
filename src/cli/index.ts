@@ -2,15 +2,11 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
-// import { execSync, spawn } from "child_process";
+
 import { default as isFalsy } from "../lib/types/isFalsy";
 import { default as checkVersion } from "./check-version";
 import { default as help } from "./help";
 import { default as shell } from "./shell";
-// import repl from "repl";
-// import { default as version } from "./version"; //TODO
-// import { default as exit } from "./exit"; //TODO
-// import { default as validate } from "./validate"; //TODO
 
 const args: Array<string> = process.argv.slice(2);
 
@@ -19,19 +15,23 @@ const includes = (args: Array<string>, cmds: string[]): boolean => {
 };
 
 const includesHelp: boolean = includes(args, ["--help", "-help", "--h", "-h"]);
-
 const includesExit: boolean = includes(args, ["--exit", "-exit", "--e", "-e"]);
-
-// const includesVersion: boolean = includes(args, ["--version", "-version", "--v", "-v"]);
-
 const includesCI: boolean = includes(args, ["--ci", "-ci"]);
-
 const includesShell: boolean = includes(args, ["--shell", "-shell", "--s", "-s"]);
-if (true === includesShell) {
+const includesVerbose: boolean = includes(args, ["--verbose", "-verbose", "--vb", "-vb"]);
+
+export const logger = (msg: string, color: string, tag: string): void => {
+  if (includesVerbose) {
+    console.info(`\x1b[1m\x1b[${color}m%s\x1b[0m`, `${tag}:`, msg);
+  }
+};
+
+if (true === includesShell && args[0] !== "--help" && args[0] !== "-help" && args[0] !== "--h" && args[0] !== "-h") {
   if (true === includesHelp) {
     console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextShell());
     process.exit(0);
   }
+  logger("Starting shell mode...", "34", "Info");
   shell();
 } else {
   switch (
@@ -52,6 +52,7 @@ if (true === includesShell) {
         processExit = true;
       }
 
+      logger("Staring check version...", "34", "Info");
       checkVersion(processExit);
       break;
     }
@@ -65,6 +66,12 @@ if (true === includesShell) {
       } else if (true === includesCI) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCI());
         process.exit(0);
+      } else if (true === includesShell) {
+        console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextShell());
+        process.exit(0);
+      } else if (true === includesVerbose) {
+        console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextVerbose());
+        process.exit(0);
       }
       console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getGlobalHelpText());
       break;
@@ -77,8 +84,10 @@ if (true === includesShell) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextVersion());
         process.exit(0);
       }
+      logger("Getting installed version...", "34", "Info");
       const packageJson = require("../../package.json");
       console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", `Installed version: ${packageJson.version}`);
+      logger("Done getting installed version.", "34", "Info");
       break;
     }
     case "--update":
@@ -89,12 +98,14 @@ if (true === includesShell) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextUpdate());
         process.exit(0);
       }
+      logger("Starting update...", "34", "Info");
       const packageJson = require("../../package.json");
       console.info(
         "\x1b[1m\x1b[33m%s\x1b[0m",
         "Warning:",
         `'Update' command not yet implemented. Current version: ${packageJson.version}`,
       );
+      logger("Done updating", "34", "Info");
       break;
     }
     default:
@@ -107,4 +118,4 @@ if (true === includesShell) {
   }
 
   process.exit(0); // stops the process, end of cli.
-}
+} // don't stop the process, shell mode.

@@ -24,11 +24,14 @@ const getGlobalHelpText = (): string => {
         --help: Show this help message.
         --check: Check the version of validatees to the locale version.
         --version: Show the installed version of validatees.
+        --shell: Run validatees in shell mode.
+        --update: Update the version of validatees.(Not implemented yet)
 
       Available flags for all commands:
         --help: Show the help text for the command.
         --exit: Exit the process after the command has been executed.
         --ci: Exit the process with a CI friendly exit code.
+        --verbose: Show verbose output.
 
       All commands and flags can be used with a single dash or a double dash.
       All commands and flags can be used with a single letter or a full word.
@@ -38,7 +41,7 @@ const getGlobalHelpText = (): string => {
 
 const getHelpTextCI = (): string => {
   return `
-      '--ci', '-ci', '--c', '-c': Exit the process with a CI friendly exit code.
+      '--ci', '-ci': Exit the process with a CI friendly exit code.
       This flag is used to exit the process with a non-zero exit code after the command has been executed.
       This is useful for CI/CD pipelines.
     `;
@@ -73,6 +76,13 @@ const getHelpTextInShell = (): string => {
       `;
 };
 
+const getHelpTextVerbose = (): string => {
+  return `
+      '--verbose', '-verbose', '--vb', '-vb': Show verbose output.
+      This flag is used to show verbose output.
+    `;
+};
+
 export default {
   getHelpTextCheckVersion,
   getHelpTextExit,
@@ -82,4 +92,5 @@ export default {
   getHelpTextUpdate,
   getHelpTextShell,
   getHelpTextInShell,
+  getHelpTextVerbose,
 };

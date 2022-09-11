@@ -13,7 +13,7 @@ Validation package for ES6+, TypeScript and JavaScript(CommonJS and Module) read
 
 - 🚀**Easy to use**: Easy to install in your project.
 - ✅**ES6+ && TS**: TypeScript and ES6+ support(JS).
-- 🐭**Small footprint**: With less then 10kb, you won't even notice.
+- 🐭**Small footprint**: With less then 20kb, you won't even notice.
 - 📦**No dependencies**: You don't depend on anything else.
 
 # Getting Started
@@ -150,12 +150,14 @@ validatees-cli <args>
 #### **options-cli**:
 
 - `--help, -help, --h, -h`: show help. </br>
-  `validatees-cli --help` or `validatees-cli -h` or `validatees-cli --h`
+  `validatees-cli --check --help` or `validatees-cli -h` or `validatees-cli --h`
   - Can be used after each of the following flags to show help for that flag.
   - Or can be used to display all the flags and their description.
 - `--version, -version, --v, -v`: show the current installed version.
 - `--check, -check, --c, -c`: check if the installed version is up to date with the latest version.
 - `--exit, -exit, --e, -e`: exit the process after the command execution, default: `false`.
+- `--verbose, -verbose, --vb, -vb`: show more information, default: `false`.
+- `--ci, -ci`: run in CI mode.
 - `--shell, -shell, --s, -s`: open the custom shell to try out the functions.
 <!-- - `--update, -update, --u, -u`: update to the latest version. -->
 

@@ -1,3 +1,7 @@
+## 0.7.5
+
+- Added verbose option to CLI to print out the full stack trace of actions/errors.
+
 ## 0.7.4
 
 - Fix where check version would check on dependencies instead version in the validatees package.json, while it cannot install itself.
