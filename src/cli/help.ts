@@ -50,6 +50,28 @@ const getHelpTextUpdate = (): string => {
       This command updates the version of validatees installed in your project.
     `;
 };
+const getHelpTextShell = (): string => {
+  return `
+      '--shell', '-shell', '--s', '-s': Run validatees in shell mode.
+      This command runs validatees in shell mode.
+      In shell mode, you can run validatees commands in the terminal.
+      To exit shell mode, type 'exit' or type 'Ctrl + C'.
+    `;
+};
+
+const getHelpTextInShell = (): string => {
+  return `
+      Welcome to validatees shell mode.
+      Type 'exit', 'quit' or 'Ctrl + C' to exit shell mode.
+      Type '?help' to get this help message.
+      In shell mode, you can run validatees commands in the terminal.
+      'ENTER' to execute the command.
+      'UP' and 'DOWN' to navigate through the history.
+      'TAB' to autocomplete.
+
+      Press Enter to exit this help message.
+      `;
+};
 
 export default {
   getHelpTextCheckVersion,
@@ -58,4 +80,6 @@ export default {
   getGlobalHelpText,
   getHelpTextCI,
   getHelpTextUpdate,
+  getHelpTextShell,
+  getHelpTextInShell,
 };

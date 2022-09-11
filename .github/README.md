@@ -156,6 +156,7 @@ validatees-cli <args>
 - `--version, -version, --v, -v`: show the current installed version.
 - `--check, -check, --c, -c`: check if the installed version is up to date with the latest version.
 - `--exit, -exit, --e, -e`: exit the process after the command execution, default: `false`.
+- `--shell, -shell, --s, -s`: open the custom shell to try out the functions.
 <!-- - `--update, -update, --u, -u`: update to the latest version. -->
 
 ### Types
