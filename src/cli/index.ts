@@ -14,19 +14,19 @@ const includes = (args: Array<string>, cmds: string[]): boolean => {
   return cmds.some((c) => args.includes(c));
 };
 
-export const logger = (msg: string, color: string, tag: string): void => {
-  const verbose = includes(args, ["-verbose", "--verbose", "-vb", "--vb"]);
-  if (verbose) {
-    console.info(`\x1b[1m\x1b[${color}m%s\x1b[0m`, `${tag}:`, msg);
-  }
-};
-
 const includesHelp: boolean = includes(args, ["--help", "-help", "--h", "-h"]);
 const includesExit: boolean = includes(args, ["--exit", "-exit", "--e", "-e"]);
 const includesCI: boolean = includes(args, ["--ci", "-ci"]);
 const includesShell: boolean = includes(args, ["--shell", "-shell", "--s", "-s"]);
+const includesVerbose: boolean = includes(args, ["--verbose", "-verbose", "--vb", "-vb"]);
 
-if (true === includesShell) {
+export const logger = (msg: string, color: string, tag: string): void => {
+  if (includesVerbose) {
+    console.info(`\x1b[1m\x1b[${color}m%s\x1b[0m`, `${tag}:`, msg);
+  }
+};
+
+if (true === includesShell && args[0] !== "--help" && args[0] !== "-help" && args[0] !== "--h" && args[0] !== "-h") {
   if (true === includesHelp) {
     console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextShell());
     process.exit(0);
@@ -65,6 +65,12 @@ if (true === includesShell) {
         process.exit(0);
       } else if (true === includesCI) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCI());
+        process.exit(0);
+      } else if (true === includesShell) {
+        console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextShell());
+        process.exit(0);
+      } else if (true === includesVerbose) {
+        console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextVerbose());
         process.exit(0);
       }
       console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getGlobalHelpText());
