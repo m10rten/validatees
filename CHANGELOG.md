@@ -1,3 +1,7 @@
+## 0.7.4
+
+- Fix where check version would check on dependencies instead version in the validatees package.json, while it cannot install itself.
+
 ## 0.7.3
 
 - Fix where version check was not working correctly.

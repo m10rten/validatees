@@ -42,19 +42,17 @@ if (true === includesShell) {
     case "--c":
     case "-check": {
       let processExit: boolean = false;
-      let ci: boolean = false;
       if (true === includesHelp) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCheckVersion());
         process.exit(0);
       } else if (true === includesExit) {
-        processExit = false;
+        processExit = true;
       }
       if (true === includesCI) {
         processExit = true;
-        ci = true;
       }
 
-      checkVersion(processExit, ci);
+      checkVersion(processExit);
       break;
     }
     case "--help":

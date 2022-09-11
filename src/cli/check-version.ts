@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
 import { execSync } from "child_process";
-const checkVersion = (processExit: boolean, ci: boolean = false): void => {
+const checkVersion = (processExit: boolean): void => {
   const patchMessage = `There is a new patch version of validatees, please update your validatees to the latest version.`;
   const minorMessage = `There is a new minor version of validatees, please update your validatees to the latest version.`;
   const majorMessage = `There is a new major version of validatees, please update your validatees to the latest version.`;
@@ -9,14 +9,9 @@ const checkVersion = (processExit: boolean, ci: boolean = false): void => {
   try {
     const npmVersion: string = execSync("npm view validatees version").toString().trim() || "1.0.0";
     const localVersionJSON = require("../../package.json");
-    let localVersion: string = localVersionJSON?.dependencies?.validatees || "0.0.0";
-    if (localVersion === "0.0.0" && false === ci) {
+    const localVersion: string = localVersionJSON?.version || "0.0.0";
+    if (localVersion === "0.0.0") {
       throw new Error("Local version is 0.0.0");
-    } else if (true === ci) {
-      localVersion = localVersionJSON?.version || "0.0.0";
-      if (localVersion === "0.0.0") {
-        throw new Error("Local version is 0.0.0");
-      }
     }
     const split = npmVersion.split(".");
     const pkgSplit = localVersion.split(".");
