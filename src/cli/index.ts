@@ -24,7 +24,7 @@ const includesExit: boolean = includes(args, ["--exit", "-exit", "--e", "-e"]);
 
 // const includesVersion: boolean = includes(args, ["--version", "-version", "--v", "-v"]);
 
-const includesCI: boolean = includes(args, ["--ci", "-ci", "--c", "-c"]);
+const includesCI: boolean = includes(args, ["--ci", "-ci"]);
 
 const includesShell: boolean = includes(args, ["--shell", "-shell", "--s", "-s"]);
 if (true === includesShell) {
@@ -42,16 +42,19 @@ if (true === includesShell) {
     case "--c":
     case "-check": {
       let processExit: boolean = false;
+      let ci: boolean = false;
       if (true === includesHelp) {
         console.info("\x1b[1m\x1b[32m%s\x1b[0m", "Info:", help.getHelpTextCheckVersion());
         process.exit(0);
       } else if (true === includesExit) {
         processExit = false;
-      } else if (true === includesCI) {
+      }
+      if (true === includesCI) {
         processExit = true;
+        ci = true;
       }
 
-      checkVersion(processExit);
+      checkVersion(processExit, ci);
       break;
     }
     case "--help":
