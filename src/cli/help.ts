@@ -38,7 +38,7 @@ const getGlobalHelpText = (): string => {
 
 const getHelpTextCI = (): string => {
   return `
-      '--ci', '-ci', '--c', '-c': Exit the process with a CI friendly exit code.
+      '--ci', '-ci': Exit the process with a CI friendly exit code.
       This flag is used to exit the process with a non-zero exit code after the command has been executed.
       This is useful for CI/CD pipelines.
     `;

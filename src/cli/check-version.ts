@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
 import { execSync } from "child_process";
+import { logger } from ".";
 const checkVersion = (processExit: boolean): void => {
   const patchMessage = `There is a new patch version of validatees, please update your validatees to the latest version.`;
   const minorMessage = `There is a new minor version of validatees, please update your validatees to the latest version.`;
   const majorMessage = `There is a new major version of validatees, please update your validatees to the latest version.`;
   let processExitCode: number = 0;
   try {
+    logger("Checking for new version of validatees...", "34", "Info");
     const npmVersion: string = execSync("npm view validatees version").toString().trim() || "1.0.0";
     const localVersionJSON = require("../../package.json");
     const localVersion: string = localVersionJSON?.version || "0.0.0";
@@ -16,6 +18,7 @@ const checkVersion = (processExit: boolean): void => {
     const split = npmVersion.split(".");
     const pkgSplit = localVersion.split(".");
     if (split[0] > pkgSplit[0] || split[1] > pkgSplit[1] || split[2] > pkgSplit[2]) {
+      logger("New version of validatees is available.", "34", "Info");
       if (split[0] > pkgSplit[0]) {
         throw new Error(majorMessage);
       } else if (split[1] > pkgSplit[1]) {
@@ -60,7 +63,10 @@ const checkVersion = (processExit: boolean): void => {
     }
   }
   if (true === processExit) {
+    logger("Done executing, exiting...", "34", "Info");
     return process.exit(processExitCode);
+  } else {
+    logger("Done executing, waiting...", "34", "Info");
   }
 };
 
