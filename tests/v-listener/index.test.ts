@@ -121,4 +121,21 @@ describe("VListener", () => {
     array.push("array2");
     expect(array.length).toBe(prevLength + 1);
   });
+  it("should test multiple callbacks", () => {
+    const vListener = new VListener();
+    const array = ["array"];
+    const callback1 = () => true;
+    const callback2 = () => true;
+    vListener.register([
+      {
+        array: array,
+        callback: [callback1, callback2] as unknown as <T = any>(
+          value: T,
+        ) => boolean | (<T = any>(value: T) => boolean)[],
+      },
+    ]);
+    array.push("array2");
+    expect(callback1).toHaveBeenCalled();
+    expect(callback2).toHaveBeenCalled();
+  });
 });

@@ -3,7 +3,7 @@ export class VListener {
   public register(
     args: Array<{
       array: Array<any>;
-      callback: <T = any>(value: T) => boolean;
+      callback: <T = any>(value: T) => boolean | Array<<T = any>(value: T) => boolean>;
       options?: { condition?: boolean; strict?: boolean };
     }>,
   ): void {
@@ -13,7 +13,13 @@ export class VListener {
         strict: arg.options?.strict ?? false,
       };
       if (arg.array && Array.isArray(arg.array)) {
-        listenToChangesInArray(arg.array, arg.callback, options);
+        const callbackArray: Array<any> = [];
+        if (arg.callback && typeof arg.callback === "function") {
+          callbackArray.push(arg.callback);
+        } else {
+          callbackArray.push([...arg.callback]);
+        }
+        listenToChangesInArray(arg.array, callbackArray, options);
         this.arraySet.add({ id: Math.floor(Math.random() * 10000), array: arg.array });
       } else {
         throw new Error("Invalid arguments");
@@ -42,14 +48,18 @@ export default VListener;
 
 const listenToChangesInArray = (
   arr: Array<any>,
-  callback: (...args: any) => boolean,
+  callbacks: Array<(...args: any) => boolean>,
   options: { condition: boolean; strict: boolean },
 ) => {
   let canPush: boolean = true;
   arr.push = function (...items: any[]): number {
     canPush = true;
     const passed = items.filter((item: any) => {
-      const cb: boolean = callback(item);
+      const cb: boolean = callbacks.every((func) => {
+        // console.log(func.toString());
+        console.log(func(item).toString());
+        // func(item);
+      });
       if (cb === options.condition) {
         return true;
       } else {
