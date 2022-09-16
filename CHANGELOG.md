@@ -1,3 +1,8 @@
+# 0.8.0
+
+- Fix incorrectly JS file while being TS file, fixed with #! ts-node.
+- Added callbacks for the v-listener class.
+
 ## 0.7.5
 
 - Added verbose option to CLI to print out the full stack trace of actions/errors.

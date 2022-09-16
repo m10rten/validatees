@@ -1,6 +1,6 @@
 {
   "name": "validatees",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "description": "Validation library for ES6+ modules",
   "scripts": {
     "test": "jest",
@@ -9,7 +9,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "lint": "eslint src --ext .ts",
-    "cli:check:ci": "npx ts-node ./src/cli/index.ts --check --ci"
+    "cli:check:ci": "npx ts-node ./src/cli/index.ts --check --ci",
+    "replace": "npx ts-node replace-script-notation.ts"
   },
   "main": "./dist/index.js",
   "repository": {

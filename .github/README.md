@@ -101,26 +101,30 @@ const vListener = new VListener();
 const arr1 = [];
 const arr2 = [{ a: 1 }, { b: 2 }]; // items already added will not be validated.
 
+const customCallback = (value) => {
+  ...
+}; // create your own callback
+
+const customCallbackWithDefaultValues = (value, checkOnThis = {id:1}) => {
+  ...
+}; // create your own callback with default values to check against
+
 vListener.register([
-  { array: arr1, callback: isTruthy, { strict: true } },
-  { array: arr2, callback: isFalsyExtended, { condition: false } },
+  { array: arr1, callback: isTruthy, options: { strict: true } },
+  { array: arr2, callback: isFalsyExtended, options: { condition: false } },
+  { array: arr2, callback: [isTruthy, customCallback, customCallbackWithDefaultValues], options: { strict: true } },
 ]);
 
-arr1.push(1); // should be pushed
-arr2.push({ c: 3 }, { d: 4 }, null); // should not be pushed, strict mode is on.
-arr1.push(0); // should not be pushed
-arr2.push({}); // should not be pushed
-
-console.log(arr1); // [1]
-console.log(arr2); // [{ a: 1 }, { b: 2 }]
+arr1.push(1); // should be pushed, [1]
+arr2.push({ c: 3 }, { d: 4 }, null); // should not be pushed, strict mode is on, [{ a: 1 }, { b: 2 }]
+arr1.push(0); // should not be pushed, [1]
+arr2.push({}); // should not be pushed, [{ a: 1 }, { b: 2 }]
 
 vListener.remove([{ array: arr1 }]);
-arr1.push(0); // can now be pushed again.
-console.log(arr1); // [1, 0]
+arr1.push(0); // can now be pushed again, [1, 0]
 
 vListener.remove([{ array: arr2 }]);
-arr2.push({}); // can now be pushed again.
-console.log(arr2); // [{ a: 1 }, { b: 2 }, {}]
+arr2.push({}); // can now be pushed again, [{ a: 1 }, { b: 2 }, {}]
 ```
 
 ### CLI

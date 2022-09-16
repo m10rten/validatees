@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#! /usr/bin/env ts-node-script
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */

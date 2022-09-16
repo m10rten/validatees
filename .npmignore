@@ -11,4 +11,4 @@ tsconfig.json
 .npmignore
 CHANGELOG.md
 .nvmrc
-uglify-files.js
+replace-script-notation.ts
