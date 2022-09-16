@@ -22,8 +22,8 @@
     "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
     // "declarationDir": "dist/@types" /* Specify the output directory for generated declaration files. */,
     // these next two need to be set to true for tests.
-    "declarationMap": true /* Create sourcemaps for d.ts files. */,
-    "sourceMap": true /* Create source map files for emitted JavaScript files. */,
+    "declarationMap": false /* Create sourcemaps for d.ts files. */,
+    "sourceMap": false /* Create source map files for emitted JavaScript files. */,
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
     "removeComments": true /* Disable emitting comments. */,
     "newLine": "lf" /* Set the newline character for emitting files. */,
