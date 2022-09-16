@@ -1,3 +1,7 @@
+## 0.8.1
+
+- Reverted the tsconfig.json to decrease file size.
+
 # 0.8.0
 
 - Fix incorrectly JS file while being TS file, fixed with #! ts-node.
