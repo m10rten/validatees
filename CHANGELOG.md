@@ -1,4 +1,4 @@
-## 0.7.6
+# 0.8.0
 
 - Fix incorrectly JS file while being TS file, fixed with #! ts-node.
 - Added callbacks for the v-listener class.

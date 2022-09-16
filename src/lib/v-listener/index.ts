@@ -3,7 +3,7 @@ export class VListener {
   public register(
     args: Array<{
       array: Array<any>;
-      callback: <T = any>(value: T) => boolean | Array<<T = any>(value: T) => boolean>;
+      callback: ((value: any) => boolean) | Array<(value: any) => boolean>;
       options?: { condition?: boolean; strict?: boolean };
     }>,
   ): void {
@@ -17,7 +17,7 @@ export class VListener {
         if (arg.callback && typeof arg.callback === "function") {
           callbackArray.push(arg.callback);
         } else {
-          callbackArray.push([...arg.callback]);
+          callbackArray.push(...arg.callback);
         }
         listenToChangesInArray(arg.array, callbackArray, options);
         this.arraySet.add({ id: Math.floor(Math.random() * 10000), array: arg.array });
@@ -55,11 +55,7 @@ const listenToChangesInArray = (
   arr.push = function (...items: any[]): number {
     canPush = true;
     const passed = items.filter((item: any) => {
-      const cb: boolean = callbacks.every((func) => {
-        // console.log(func.toString());
-        console.log(func(item).toString());
-        // func(item);
-      });
+      const cb: boolean = callbacks.every((f) => f(item));
       if (cb === options.condition) {
         return true;
       } else {

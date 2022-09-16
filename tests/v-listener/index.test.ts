@@ -18,7 +18,7 @@ describe("VListener", () => {
   });
   it("should check if the callback is called when the array is changed", () => {
     const vListener = new VListener();
-    const callback = jest.fn();
+    const callback = jest.fn().mockReturnValue(true);
     const array = ["array"];
     vListener.register([
       {
@@ -124,18 +124,16 @@ describe("VListener", () => {
   it("should test multiple callbacks", () => {
     const vListener = new VListener();
     const array = ["array"];
-    const callback1 = () => true;
-    const callback2 = () => true;
+    const callback1 = jest.fn().mockReturnValue(true);
+    const callback2 = jest.fn().mockReturnValue(true);
     vListener.register([
       {
         array: array,
-        callback: [callback1, callback2] as unknown as <T = any>(
-          value: T,
-        ) => boolean | (<T = any>(value: T) => boolean)[],
+        callback: [callback1, callback2],
       },
     ]);
     array.push("array2");
-    expect(callback1).toHaveBeenCalled();
-    expect(callback2).toHaveBeenCalled();
+    expect(callback1).toHaveBeenCalledWith("array2");
+    expect(callback2).toHaveBeenCalledWith("array2");
   });
 });
