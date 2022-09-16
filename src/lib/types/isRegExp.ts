@@ -7,9 +7,4 @@ export function isRegExp(value: any): value is RegExp {
   );
 }
 
-// "string" === typeof value ||
-//     value instanceof String ||
-//     String === value.constructor ||
-//     "[object String]" === Object.prototype.toString.call(value)
-
 export default isRegExp;

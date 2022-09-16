@@ -10,3 +10,4 @@ export { isNumber } from "./isNumber";
 export { isBoolean } from "./isBoolean";
 export { isExtendable } from "./isExtendable";
 export { isRegExp } from "./isRegExp";
+export { isDate } from "./isDate";

@@ -3,6 +3,8 @@
 - Fix incorrectly JS file while being TS file, fixed with #! ts-node.
 - Added callbacks for the v-listener class.
 - Added `isRegExp` and `isDate` to the 'core'(soon to be) module.
+- Updated the documentation accordingly.
+- Updated the dev dependencies.
 
 ## 0.7.5
 

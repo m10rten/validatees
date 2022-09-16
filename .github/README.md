@@ -249,7 +249,7 @@ isNumber(Infinity); // true
 isNumber("string"); // false
 ```
 
-#### **isBoolean**: </br>
+#### **isBoolean**:
 
 Check if value is a boolean.
 
@@ -260,7 +260,28 @@ isBoolean(false); // true
 isBoolean("1"); // false
 ```
 
-#### **isExtendable**: </br>
+#### **isDate**:
+
+Check if value is a date.
+
+```js
+const { isDate } = require("validatees");
+isDate(new Date()); // true
+isDate("1"); // false
+```
+
+#### **isRegExp**:
+
+Check if value is a regular expression.
+
+```js
+const { isRegExp } = require("validatees");
+isRegExp(/test/); // true
+isRegExp(new RegExp("test")); // true
+isRegExp("1"); // false
+```
+
+#### **isExtendable**:
 
 Check if value is extendable for modification.
 
