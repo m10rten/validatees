@@ -10,6 +10,8 @@ export { isString } from "./types/isString";
 export { isNumber } from "./types/isNumber";
 export { isBoolean } from "./types/isBoolean";
 export { isExtendable } from "./types/isExtendable";
+export { isRegExp } from "./types/isRegExp";
+export { isDate } from "./types/isDate";
 // matchers
 export { isSoftMatch } from "./matchers/isSoftMatch";
 export { isDeepMatch } from "./matchers/isDeepMatch";
