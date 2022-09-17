@@ -1,3 +1,7 @@
+## 0.8.2
+
+- Fixed the CI pipeline checks so version can never be the same.
+
 ## 0.8.1
 
 - Reverted the tsconfig.json to decrease file size.
