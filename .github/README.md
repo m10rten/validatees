@@ -81,8 +81,7 @@ Adding validation over your array before your program starts.
 
 - `array`: array to validate.
 - `callback`: function to validate each item in the array, must return boolean, can only take 1 parameter(for now!).  
- Use validatees `isTruthy` or `isFalsy` for example.
-<!-- To Be Extended with callback array to validate even more! -->
+  Use validatees `isTruthy` or `isFalsy` for example.
 
 #### **options-vlistener**:
 
