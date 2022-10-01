@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Final release, no more updates feature wise, only maintenance and bug fixes.
+
 ## 0.8.2
 
 - Fixed the CI pipeline checks so version can never be the same.
