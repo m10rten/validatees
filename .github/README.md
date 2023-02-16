@@ -33,9 +33,11 @@ pnpm install validatees
 
 To check if you have the **latest version**, run using `npx`✅:
 
+> ⚠️ Must have the validatees package installed globally.
+
 ```bash
 # npx
-npx validatees-cli --check
+npx vci --check
 ```
 
 ## Usage
@@ -141,19 +143,19 @@ yarn global add validatees
 
 #### **usage-cli**:
 
-To use the CLI, run `validatees-cli` in your terminal:
+To use the CLI, run `vci` in your terminal:
 
 ```bash
 # npx
-npx validatees-cli <args>
+npx vci <args>
 # npm & yarn
-validatees-cli <args>
+vci <args>
 ```
 
 #### **options-cli**:
 
 - `--help, -help, --h, -h`: show help. </br>
-  `validatees-cli --check --help` or `validatees-cli -h` or `validatees-cli --h`
+  `vci --check --help` or `vci -h` or `vci --h`
   - Can be used after each of the following flags to show help for that flag.
   - Or can be used to display all the flags and their description.
 - `--version, -version, --v, -v`: show the current installed version.
