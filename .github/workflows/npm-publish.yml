@@ -20,6 +20,7 @@ jobs:
         run: |
           npm run check:version
         # if this step fails, the workflow will stop
+
   suite:
     runs-on: ubuntu-latest
     needs: check-version
@@ -40,8 +41,9 @@ jobs:
       - name: run test suite
         run: |
           npm test
+
   publish-npm:
-    needs: [validatees-suite, check-version]
+    needs: [suite, check-version]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
