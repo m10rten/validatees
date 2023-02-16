@@ -81,21 +81,6 @@ describe("isFalsyExtended", () => {
   it("should return false for {a:1,b:2}", () => {
     expect(isFalsyExtended({ a: 1, b: 2 })).toBe(false);
   });
-  it("should return true for {a:1,b:2,c:null}", () => {
-    expect(isFalsyExtended({ a: 1, b: 2, c: null })).toBe(true);
-  });
-  it("should return true for {a:1,b:2,c:undefined}", () => {
-    expect(isFalsyExtended({ a: 1, b: 2, c: undefined })).toBe(true);
-  });
-  it("should return true for {a:1,b:2,c:NaN}", () => {
-    expect(isFalsyExtended({ a: 1, b: 2, c: NaN })).toBe(true);
-  });
-  it("should return true for {a:1,b:2,c:0}", () => {
-    expect(isFalsyExtended({ a: 1, b: 2, c: 0 })).toBe(true);
-  });
-  it("should return true for {a:1,b:2,c:false}", () => {
-    expect(isFalsyExtended({ a: 1, b: 2, c: false })).toBe(true);
-  });
   it("should return true for {}", () => {
     expect(isFalsyExtended({})).toBe(true);
   });

@@ -9,12 +9,7 @@ export function isFalsyExtended<T>(value: allTypes<T>): value is FalsyExtended {
   } else if ("function" === typeof value) {
     return isFalsy(value());
   } else if ("object" === typeof value) {
-    return (
-      0 === Object.keys(value).length ||
-      0 === Object.values(value).length ||
-      true === Object.keys(value).some((key) => true === isFalsy(value[key])) ||
-      true === Object.values(value).some((val: any) => true === isFalsy(val))
-    );
+    return 0 === Object.keys(value).length || 0 === Object.values(value).length;
   } else if ("number" === typeof value) {
     return Number.isNaN(value) || false === Number.isFinite(value) || Infinity === value || -Infinity === value;
   }

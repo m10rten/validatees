@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Dependency updates, documentation updates and minor bug fixes.
+
 # 1.1.0
 
 - Final release, no more updates feature wise, only maintenance and bug fixes.
