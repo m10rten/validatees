@@ -1,3 +1,7 @@
+## 1.2.1
+
+- Dependency updates (added prettier as dev dep) and engine bump.
+
 # 1.2.0
 
 - Dependency updates, documentation updates and minor bug fixes.
