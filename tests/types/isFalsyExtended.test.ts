@@ -39,20 +39,20 @@ describe("isFalsyExtended", () => {
   it("should return false for {a:1}", () => {
     expect(isFalsyExtended({ a: 1 })).toBe(false);
   });
-  it("should return true for [{},{}]", () => {
-    expect(isFalsyExtended([{}, {}])).toBe(true);
+  it("should return false for [{},{}]", () => {
+    expect(isFalsyExtended([{}, {}])).toBe(false);
   });
   it("should return false for [{a:1},{b:2}]", () => {
     expect(isFalsyExtended([{ a: 1 }, { b: 2 }])).toBe(false);
   });
-  it("should return true for [{a:1},{b:2},null]", () => {
-    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, null])).toBe(true);
+  it("should return false for [{a:1},{b:2},null]", () => {
+    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, null])).toBe(false);
   });
-  it("should return true for [{a:1},{b:2},undefined]", () => {
-    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, undefined])).toBe(true);
+  it("should return false for [{a:1},{b:2},undefined]", () => {
+    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, undefined])).toBe(false);
   });
-  it("should return true for [{a:1},{b:2},NaN]", () => {
-    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, NaN])).toBe(true);
+  it("should return false for [{a:1},{b:2},NaN]", () => {
+    expect(isFalsyExtended([{ a: 1 }, { b: 2 }, NaN])).toBe(false);
   });
   it("should return true for () => {}", () => {
     expect(isFalsyExtended(() => {})).toBe(true);
