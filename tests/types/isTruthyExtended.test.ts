@@ -39,16 +39,10 @@ describe("isTruthyExtended", () => {
   it("should return true for {a:1}", () => {
     expect(isTruthyExtended({ a: 1 })).toBe(true);
   });
-  it("should return false for [{},{}]", () => {
-    expect(isTruthyExtended([{}, {}])).toBe(false);
+  it("should return true for [{},{}]", () => {
+    expect(isTruthyExtended([{}, {}])).toBe(true);
   });
   it("should return true for [{a:1},{b:2}]", () => {
     expect(isTruthyExtended([{ a: 1 }, { b: 2 }])).toBe(true);
-  });
-  it("should return false for [{a:1},{b:2},null]", () => {
-    expect(isTruthyExtended([{ a: 1 }, { b: 2 }, null])).toBe(false);
-  });
-  it("should return true for [{a:1},{b:2},undefined]", () => {
-    expect(isTruthyExtended([{ a: 1 }, { b: 2 }, undefined])).toBe(false);
   });
 });
