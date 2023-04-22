@@ -1,3 +1,7 @@
+## 1.2.2
+
+- IsFalsyExtended fixed.
+
 ## 1.2.1
 
 - Dependency updates (added prettier as dev dep) and engine bump.

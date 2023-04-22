@@ -5,7 +5,7 @@ export function isFalsyExtended<T>(value: allTypes<T>): value is FalsyExtended {
   if (isFalsy(value)) {
     return true;
   } else if (Array.isArray(value)) {
-    return 0 === value.length || value.some(isFalsyExtended);
+    return 0 === value.length;
   } else if ("function" === typeof value) {
     return isFalsy(value());
   } else if ("object" === typeof value) {
@@ -15,5 +15,5 @@ export function isFalsyExtended<T>(value: allTypes<T>): value is FalsyExtended {
   }
   return false;
 }
-export type FalsyExtended = null | undefined | 0 | "" | false | -0 | [] | Record<string, unknown> | (() => Falsy);
+export type FalsyExtended = null | undefined | 0 | "" | false | -0 | [] | Record<any, unknown> | (() => Falsy);
 export default isFalsyExtended;
